@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default"
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
     data-assets-path="../../asset/" data-template="vertical-menu-template">
 
 <head>
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="../../asset/vendor/css/rtl/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../../asset/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../../asset/css/demo.css" />
-
+    <link rel="stylesheet" href="../../asset/css/custom.css" />
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../../asset/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="../../asset/vendor/libs/typeahead-js/typeahead.css" />
@@ -140,8 +140,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col form-floating form-floating-outline">
+                            <div class="mb-3 row">
+                                <div class="form-floating form-floating-outline col">
                                     <input type="text" class="form-control @error('c_name1') is-invalid @enderror"
                                         id="c_name1" name="c_name1" placeholder="児童氏名"
                                         value="{{ old('c_name1') }}" required autocomplete="c_name1" autofocus />
@@ -150,9 +150,9 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    <label style="padding: 0.7813rem 0.7813rem;" for="c_name1">児童氏名</label>
+                                    <label for="c_name1">児童氏名</label>
                                 </div>
-                                <div class="col form-floating form-floating-outline">
+                                <div class="form-floating form-floating-outline col">
                                     <input type="text" class="form-control @error('c_name2') is-invalid @enderror"
                                         id="c_name2" name="c_name2" placeholder="ふりがな"
                                         value="{{ old('c_name2') }}" required autocomplete="c_name2" autofocus />
@@ -161,11 +161,159 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    <label style="padding: 0.7813rem 0.7813rem;" for="c_name2">ふりがな</label>
+                                    <label for="c_name2">ふりがな</label>
                                 </div>
                             </div>
-                       
-                         
+                            <div class="mb-3">
+                                <div class="form-floating form-floating-outline">
+                                    <select id="c_grade" name="c_grade" class="form-select @error('c_grade') is-invalid @enderror" required autofocus>
+                                        <option>学年を選択してください。</option>
+                                        <option value="0">新入生</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                    @error('c_grade')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <p>※3月末までは、現在の学年を入力してください。</p>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="form-floating form-floating-outline col">
+                                    <input type="text" class="form-control @error('p_name1') is-invalid @enderror"
+                                        id="p_name1" name="p_name1" placeholder="保護者氏名"
+                                        value="{{ old('p_name1') }}" required autocomplete="p_name1" autofocus />
+                                    @error('p_name1')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <label for="p_name1">保護者氏名</label>
+                                </div>
+                                <div class="form-floating form-floating-outline col">
+                                    <input type="text" class="form-control @error('p_name2') is-invalid @enderror"
+                                        id="p_name2" name="p_name2" placeholder="ふりがな"
+                                        value="{{ old('p_name2') }}" required autocomplete="p_name2" autofocus />
+                                    @error('p_name2')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <label for="p_name2">ふりがな</label>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="form-floating form-floating-outline col">
+                                    <input type="text" class="form-control @error('postcode') is-invalid @enderror"
+                                        id="postcode" name="postcode" placeholder="郵便番号"
+                                        value="{{ old('postcode') }}" required autocomplete="postcode" autofocus />
+                                    @error('postcode')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <label for="postcode">郵便番号</label>
+                                </div>
+                                <div class="form-floating form-floating-outline col">
+                                    <select id="prefecture" name="prefecture" class="form-select @error('prefecture') is-invalid @enderror" required autofocus>
+                                        <option>都道府県</option>
+                                        <option value="1">北海道</option>
+                                        <option value="2">青森県</option>
+                                        <option value="3">岩手県</option>
+                                        <option value="4">宮城県</option>
+                                        <option value="5">秋田県</option>
+                                        <option value="6">山形県</option>
+                                        <option value="7">福島県</option>
+                                        <option value="8">茨城県</option>
+                                        <option value="9">栃木県</option>
+                                        <option value="10">群馬県</option>
+                                        <option value="11">埼玉県</option>
+                                        <option value="12">千葉県</option>
+                                        <option value="13">東京都</option>
+                                        <option value="14">神奈川県</option>
+                                        <option value="15">新潟県</option>
+                                        <option value="16">富山県</option>
+                                        <option value="17">石川県</option>
+                                        <option value="18">福井県</option>
+                                        <option value="19">山梨県</option>
+                                        <option value="20">長野県</option>
+                                        <option value="21">岐阜県</option>
+                                        <option value="22">静岡県</option>
+                                        <option value="23">愛知県</option>
+                                        <option value="24">三重県</option>
+                                        <option value="25">滋賀県</option>
+                                        <option value="26">京都府</option>
+                                        <option value="27">大阪府</option>
+                                        <option value="28">兵庫県</option>
+                                        <option value="29">奈良県</option>
+                                        <option value="30">和歌山県</option>
+                                        <option value="31">鳥取県</option>
+                                        <option value="32">島根県</option>
+                                        <option value="33">岡山県</option>
+                                        <option value="34">広島県</option>
+                                        <option value="35">山口県</option>
+                                        <option value="36">徳島県</option>
+                                        <option value="37">香川県</option>
+                                        <option value="38">愛媛県</option>
+                                        <option value="39">高知県</option>
+                                        <option value="40">福岡県</option>
+                                        <option value="41">佐賀県</option>
+                                        <option value="42">長崎県</option>
+                                        <option value="43">熊本県</option>
+                                        <option value="44">大分県</option>
+                                        <option value="45">宮崎県</option>
+                                        <option value="46">鹿児島県</option>
+                                        <option value="47">沖縄県</option>
+                                    </select>
+                                    @error('prefecture')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="form-floating form-floating-outline col">
+                                    <input type="text" class="form-control @error('address') is-invalid @enderror"
+                                        id="address" name="address" placeholder="住所"
+                                        value="{{ old('address') }}" required autocomplete="address" autofocus />
+                                    @error('address')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <label for="address">住所</label>
+                                </div>
+                                <div class="form-floating form-floating-outline col">
+                                    <input type="text" class="form-control @error('building') is-invalid @enderror"
+                                        id="building" name="building" placeholder="建物・部屋番号"
+                                        value="{{ old('building') }}" required autocomplete="building" autofocus />
+                                    @error('building')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <label for="building">建物・部屋番号</label>
+                                </div>
+                            </div>
+                            <div class="form-floating form-floating-outline mb-3">
+                                <input type="text" class="form-control @error('card') is-invalid @enderror"
+                                    id="card" name="card" placeholder="お支払いクレジットカード登録"
+                                    required autocomplete="card" autofocus />
+                                @error('card')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                <label for="card">お支払いクレジットカード登録</label>
+                            </div>
+
                             <div class="mb-3">
                                 <button class="btn btn-primary d-grid w-100" type="submit">新規登録</button>
                             </div>
