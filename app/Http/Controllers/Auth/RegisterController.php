@@ -49,9 +49,19 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:4', 'confirmed'],
+            'c_name1' => ['required', 'string', 'max:255'],
+            'c_name2' => ['required', 'string', 'max:255'],
+            'c_grade' => ['required', 'integer'],
+            'p_name1' => ['required', 'string', 'max:255'],
+            'p_name2' => ['required', 'string', 'max:255'],
+            'p_phone' => ['required', 'string', 'max:255'],
+            'postcode' => ['required', 'string', 'max:255'],
+            'prefecture' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'building' => ['required', 'string', 'max:255'],
+            'card' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -64,9 +74,20 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'c_name1' => $data['c_name1'],
+            'c_name2' => $data['c_name2'],
+            'c_grade' => $data['c_grade'],
+            'p_name1' => $data['p_name1'],
+            'p_name2' => $data['p_name2'],
+            'p_phone' => $data['p_phone'],
+            'postcode' => $data['postcode'],
+            'prefecture' => $data['prefecture'],
+            'address' => $data['address'],
+            'building' => $data['building'],
+            'card' => $data['card'],
+            'role' => 2
         ]);
     }
 }

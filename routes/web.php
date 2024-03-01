@@ -23,7 +23,6 @@ Auth::routes();
 Route::get('_verifyMailSend', [App\Http\Controllers\VerificationController::class, '_verifyMailSend'])->name('_verifyMailSend');
 Route::post('verifyMailSend', [App\Http\Controllers\VerificationController::class, 'verifyMailSend'])->name('verifyMailSend');
 Route::get('/email/verify/{hash}', [App\Http\Controllers\VerificationController::class, 'getVerifyMail'])->name('getVerifyMail');
-
 Route::get('/mailSended', [App\Http\Controllers\VerificationController::class, 'mailSended'])->name('mailSended');
 
 

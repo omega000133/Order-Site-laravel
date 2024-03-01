@@ -88,7 +88,7 @@
 
             <div class="card-body mt-2">
               {{-- <form id="formAuthentication" class="mb-3" action="{{ route('verifyMailSend') }}"> --}}
-                <div class="form-floating form-floating-outline mb-3">
+                <div class="form-floating form-floating-outline mb-3 text-center">
                   <p>メールアドレスに確認メールを送信しました。</p>
                   <p>送信した確認メールで新規登録を進めてください。</p>
                 </div>
