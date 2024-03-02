@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="./asset/vendor/css/rtl/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="./asset/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="./asset/css/demo.css" />
+    <link rel="stylesheet" href="./asset/css/custom.css" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="./asset/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -56,18 +57,6 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="./asset/js/config.js"></script>
   </head>
-
-  <style>
-    .app-brand-logo img {
-      width: 30%;
-      margin-left: 90px
-    }
-    @media only screen and (max-width: 768px) {
-        .app-brand-logo img {
-            margin-left: 60px
-        }
-    }
-  </style>
   <body>
     <!-- Content -->
 
@@ -148,6 +137,7 @@
             </div>
           </div>
           <!-- /Login -->
+          <img alt="mask" src="./asset/img/illustrations/auth-basic-login-mask-light.png" class="authentication-image d-none d-lg-block" data-app-light-img="illustrations/auth-basic-login-mask-light.png" data-app-dark-img="illustrations/auth-basic-login-mask-dark.png">
         </div>
       </div>
     </div>

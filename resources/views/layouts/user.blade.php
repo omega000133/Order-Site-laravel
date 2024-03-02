@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./assets/css/common/slick.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="./asset/vendor/libs/jquery/jquery.js"></script>
-    <title>お弁当注文サイ</title>
+    <title>お弁当注文サイト</title>
 </head>
 
 <body>

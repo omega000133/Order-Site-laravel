@@ -32,7 +32,8 @@
     <link rel="stylesheet" href="./asset/vendor/css/rtl/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="./asset/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="./asset/css/demo.css" />
-
+    <link rel="stylesheet" href="./asset/css/custom.css" />
+    
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="./asset/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="./asset/vendor/libs/typeahead-js/typeahead.css" />
@@ -73,9 +74,9 @@
                 <div class="app-brand demo">
                     <a href="{{ route('home') }}" class="app-brand-link">
                         <span class="app-brand-logo demo">
-                            <img src="./assets/img/admin-logo.svg" alt="">
+                            <img src="./assets/img/logo.png" alt="お弁当注文管理サイト">
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bold mt-3">お弁当注文管理サイト</span>
+                        {{-- <span class="app-brand-text demo menu-text fw-bold mt-3">お弁当注文管理サイト</span> --}}
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -95,30 +96,18 @@
                     @if (Auth::user()->role == 1)
                         <li class="menu-item">
                             <a href="{{ route('home') }}" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
-                                <div data-i18n="ユーザー管理">ユーザー管理</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ route('jobManage') }}" class="menu-link">
                                 <i class="menu-icon tf-icons mdi mdi-google-circles-extended"></i>
-                                <div data-i18n="職種管理">職種管理</div>
+                                <div data-i18n="注文ページ">注文ページ</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="{{ route('degreeManage') }}" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-shield-outline"></i>
-                                <div data-i18n="資格管理">資格管理</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ route('basicManage') }}" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-form-select"></i>
-                                <div data-i18n="求人情報管理">求人情報管理</div>
+                            <a href=" " class="menu-link">
+                                <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
+                                <div data-i18n="マイページ">マイページ</div>
                             </a>
                         </li>
                     @endif
-                    @auth
+                    {{-- @auth
                         @if (Auth::user()->role == 2)
                             <li class="menu-item">
                                 <a href="{{ route('mainInfo', ['c_name' => auth()->user()->c_name]) }}" class="menu-link">
@@ -127,7 +116,7 @@
                                 </a>
                             </li>
                         @endif
-                    @endauth
+                    @endauth --}}
                 </ul>
             </aside>
             <!-- / Menu -->
