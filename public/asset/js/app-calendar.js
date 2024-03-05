@@ -307,62 +307,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Modify sidebar toggler
     modifyToggler();
 
-    const eventForm = document.getElementById('eventForm');
-    const fv = FormValidation.formValidation(eventForm, {
-      fields: {
-        eventTitle: {
-          validators: {
-            notEmpty: {
-              message: 'Please enter event title '
-            }
-          }
-        },
-        eventStartDate: {
-          validators: {
-            notEmpty: {
-              message: 'Please enter start date '
-            }
-          }
-        },
-        eventEndDate: {
-          validators: {
-            notEmpty: {
-              message: 'Please enter end date '
-            }
-          }
-        }
-      },
-      plugins: {
-        trigger: new FormValidation.plugins.Trigger(),
-        bootstrap5: new FormValidation.plugins.Bootstrap5({
-          // Use this for enabling/changing valid/invalid class
-          eleValidClass: '',
-          rowSelector: function (field, ele) {
-            // field is the field name & ele is the field element
-            return '.mb-4';
-          }
-        }),
-        submitButton: new FormValidation.plugins.SubmitButton(),
-        // Submit the form when all fields are valid
-        // defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
-        autoFocus: new FormValidation.plugins.AutoFocus()
-      }
-    })
-      .on('core.form.valid', function () {
-        // Jump to the next step when all fields in the current step are valid
-        isFormValid = true;
-      })
-      .on('core.form.invalid', function () {
-        // if fields are invalid
-        isFormValid = false;
-      });
-
-    // Sidebar Toggle Btn
-    if (btnToggleSidebar) {
-      btnToggleSidebar.addEventListener('click', e => {
-        btnCancel.classList.remove('d-none');
-      });
-    }
 
     // Add Event
     // ------------------------------------------------
@@ -508,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Reset event form inputs values
     // ------------------------------------------------
     function resetValues() {
-      eventEndDate.value = '';
+      // eventEndDate.value = '';
       eventUrl.value = '';
       eventStartDate.value = '';
       eventTitle.value = '';

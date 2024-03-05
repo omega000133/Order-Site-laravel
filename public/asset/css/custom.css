@@ -4,3 +4,85 @@
 .app-brand-logo img {
     width: 190px !important;
 }
+
+/* order manage page */
+.schedule-calendar {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: flex-end;
+    width: 100% !important;
+}
+.card {
+    width: 80% !important;
+}
+.table th {
+    font-size: 1rem !important;
+    padding: 1rem 4rem !important;
+    cursor: pointer;
+}
+.card table td {
+    padding: 3rem 4.5rem;
+    cursor: pointer;
+    position: relative;
+}
+.card table td span{
+    font-size: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+.control-part1 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 0 0;
+}
+#monthYear {
+    padding: 0 15px;
+}
+.control-part2 {
+    display: flex;
+    flex-direction: column;
+    width: 15% !important;
+}
+#order-save {
+    margin-top: 10px;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .schedule-calendar {
+        flex-direction: column;
+    }
+    .card {
+        width: 100% !important;
+    }
+    .card table td {
+        padding: 1.5rem 2rem;
+    }
+    .card table td span{
+        bottom: 0;
+    }
+    .control-part1 {
+        padding: 30px 0 0;
+    }
+    #monthYear {
+        padding: 0 15px;
+    }
+    .control-part2 {
+        flex-direction: row;
+        width: 100% !important;
+        justify-content: center;
+    }
+    #order-save {
+        margin-left: 10px;
+        margin-top: 0;
+    }
+    .table th {
+        font-size: 0.75rem !important;
+        padding: 1rem 2rem !important;
+    }
+}

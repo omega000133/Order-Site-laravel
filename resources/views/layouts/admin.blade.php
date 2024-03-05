@@ -14,7 +14,7 @@
     <meta name="csrf_token" content="{{ csrf_token() }}" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./asset/img/favicon/favicon.ico" />
+    {{-- <link rel="icon" type="image/x-icon" href="./asset/img/favicon/favicon.ico" /> --}}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,7 +32,6 @@
     <link rel="stylesheet" href="./asset/vendor/css/rtl/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="./asset/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="./asset/css/demo.css" />
-    <link rel="stylesheet" href="./asset/css/custom.css" />
     
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="./asset/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -45,15 +44,19 @@
     <link rel="stylesheet" href="./asset/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
     <link rel="stylesheet" href="./asset/vendor/libs/apex-charts/apex-charts.css" />
     <link rel="stylesheet" href="./asset/vendor/libs/swiper/swiper.css" />
+
+    {{-- <link rel="stylesheet" href="./asset/vendor/libs/fullcalendar/fullcalendar.css" />
+    <link rel="stylesheet" href="./asset/vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="./asset/vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="./asset/vendor/libs/quill/editor.css" /> --}}
     <!-- Vendor -->
     <link rel="stylesheet" href="./asset/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
     <!-- Page -->
     <link rel="stylesheet" href="./asset/vendor/css/pages/page-auth.css" />
-
+    {{-- <link rel="stylesheet" href="./asset/vendor/css/pages/app-calendar.css" /> --}}
     <!-- Page CSS -->
     <link rel="stylesheet" href="./asset/vendor/css/pages/cards-statistics.css" />
     <link rel="stylesheet" href="./asset/vendor/css/pages/cards-analytics.css" />
-
     <!-- custom css -->
     <link rel="stylesheet" href="./asset/css/custom.css">
 
@@ -186,11 +189,15 @@
 <script src="./asset/vendor/libs/apex-charts/apexcharts.js"></script>
 <script src="./asset/vendor/libs/swiper/swiper.js"></script>
 <script src="./asset/vendor/libs/dropzone/dropzone.js"></script>
-<script src="./asset/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+{{-- <script src="./asset/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
 <script src="./asset/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
-<script src="./asset/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
+<script src="./asset/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script> --}}
 <script src="./asset/vendor/libs/toastr/toastr.js"></script>
 
+{{-- <script src="./asset/vendor/libs/fullcalendar/fullcalendar.js"></script>
+<script src="./asset/vendor/libs/select2/select2.js"></script>
+<script src="./asset/vendor/libs/flatpickr/flatpickr.js"></script>
+<script src="./asset/vendor/libs/moment/moment.js"></script> --}}
 <!-- Main JS -->
 <script src="./asset/js/main.js"></script>
 
@@ -199,5 +206,8 @@
 <script src="./asset/js/forms-file-upload.js"></script>
 <script src="./asset/js/pages-auth.js"></script>
 <script src="./asset/js/ui-toasts.js"></script>
+{{-- <script src="./asset/js/app-calendar-events.js"></script>
+<script src="./asset/js/app-calendar.js"></script> --}}
+<script src="./asset/js/custom.js"></script>
 
 </html>
