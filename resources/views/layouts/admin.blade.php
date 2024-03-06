@@ -99,7 +99,7 @@
                     @if (Auth::user()->role == 1)
                         <li class="menu-item">
                             <a href="{{ route('home') }}" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-google-circles-extended"></i>
+                                <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
                                 <div data-i18n="注文ページ">注文ページ</div>
                             </a>
                         </li>
@@ -107,6 +107,12 @@
                             <a href=" " class="menu-link">
                                 <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
                                 <div data-i18n="マイページ">マイページ</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href=" " class="menu-link">
+                                <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>
+                                <div data-i18n="ご利用案内ページ">ご利用案内ページ</div>
                             </a>
                         </li>
                     @endif
