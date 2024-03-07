@@ -214,6 +214,6 @@
 <script src="./asset/js/ui-toasts.js"></script>
 {{-- <script src="./asset/js/app-calendar-events.js"></script>
 <script src="./asset/js/app-calendar.js"></script> --}}
-<script src="./asset/js/custom.js"></script>
+{{-- <script src="./asset/js/custom.js"></script> --}}
 
 </html>

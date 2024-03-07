@@ -4,7 +4,6 @@ $(document).ready(function () {
     currentDate.setMonth(3); // April is month index 3 (0-indexed)
     currentDate.setDate(1); // Set to the 1st day of April
     let totalOrders = [];
-    // let cancelOrders = [];
     let everyOrders = {};
 
     //Handle Click
@@ -30,10 +29,10 @@ $(document).ready(function () {
             clickedCell.removeClass("clicked").find("span").remove();
             // clickedCell.append("<span>❌</span>");
             everyOrders[clickedDay] = 0; 
-            console.log(everyOrders[clickedDay])
+            // console.log(everyOrders[clickedDay])
             if (everyOrders[clickedDay] === 0) {
                 const index = totalOrders.indexOf(clickedDay);
-                console.log(index)
+                // console.log(index)
                 // cancelOrders.push(clickedDay)
                 if (index !== -1) {
                     totalOrders.splice(index, 1);
@@ -42,6 +41,41 @@ $(document).ready(function () {
         }
     }
 
+
+      //Handle Day of Week Click
+    function handleDayOfWeekClick(dayIndex) {
+        var tds = document.querySelectorAll("#calendar tbody tr td:nth-child(" + (dayIndex + 1) + ")");
+        tds.forEach(function(td) {
+            const date = parseInt($(td).text());
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth() + 1;
+            const day = date;
+            const formattedMonth = month < 10 ? `0${month}` : month;
+            const formattedDay = day < 10 ? `0${day}` : day;
+            const clickedDay = `${year}-${formattedMonth}-${formattedDay}`;
+            if (!everyOrders[clickedDay]) {
+                everyOrders[clickedDay] = 0;
+            }
+            if(day) {
+                if (!$(td).hasClass("clicked")) {
+                    $(td).addClass("clicked").find("span").remove();
+                    $(td).append("<span>✔️</span>");
+                    everyOrders[clickedDay] = 1; 
+                    totalOrders.push(clickedDay); 
+                } else {
+                    $(td).removeClass("clicked").find("span").remove();
+                    everyOrders[clickedDay] = 0; 
+                    // console.log(everyOrders[clickedDay])
+                    if (everyOrders[clickedDay] === 0) {
+                        const index = totalOrders.indexOf(clickedDay);
+                        if (index !== -1) {
+                            totalOrders.splice(index, 1);
+                        }
+                    }
+                }
+            }
+        });
+    }
 
     //Render Calendar
     function renderCalendar() {
@@ -128,6 +162,7 @@ $(document).ready(function () {
             currentDate.getMonth() + 1,
             0
         ).getDate();
+        totalOrders = [];
         for (let i = 1; i <= daysInMonth; i++) {
             const year = currentDate.getFullYear();
             const month = currentDate.getMonth() + 1;
@@ -135,11 +170,8 @@ $(document).ready(function () {
             const formattedMonth = month < 10 ? `0${month}` : month;
             const formattedDay = day < 10 ? `0${day}` : day;
             const clickedDay = `${year}-${formattedMonth}-${formattedDay}`;
-
             everyOrders[clickedDay] = 1; 
             totalOrders.push(clickedDay); 
-            // const index = cancelOrders.indexOf(clickedDay);
-            // cancelOrders.splice(index, 1);
         }
         renderCalendar();
     }
@@ -168,18 +200,6 @@ $(document).ready(function () {
         renderCalendar();
     }
 
-    
-    //Prev
-    // function prevMonth() {
-    //     currentDate.setMonth(currentDate.getMonth() - 1);
-    //     renderCalendar();
-    // }
-
-    //Next
-    // function nextMonth() {
-    //     currentDate.setMonth(currentDate.getMonth() + 1);
-    //     renderCalendar();
-    // }
 
     //Prev
     function prevMonth() {
@@ -196,22 +216,21 @@ $(document).ready(function () {
             renderCalendar();
         }
     }
-    
+
 
     $("#prevBtn").on("click", prevMonth);
     $("#nextBtn").on("click", nextMonth);
     $("#every-use").on("click", registerAllOrders);
     $("#every-cancel").on("click", cancelAllOrders);
     
-    
+    $("th[data-day]").on("click", function () {
+        const dayIndex = $(this).data("day");
+        handleDayOfWeekClick(dayIndex);
+    });
+
     document.querySelector("#order-save").addEventListener('click', () => {
         console.log(totalOrders)
     })
-
-    // $("th[data-day]").on("click", function () {
-    //     const dayIndex = $(this).data("day");
-    //     handleDayOfWeekClick(dayIndex);
-    // });
 
     renderCalendar();
 
