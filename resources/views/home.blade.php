@@ -26,8 +26,13 @@
                 </div>
             </div>
             <div class="control-part2">
-                <button class="btn btn-danger" id="every-use">毎日利用</button>
-                <button class="btn btn-primary" id="order-save">注文確定</button>
+                <div class="btn-group1">
+                    <button class="btn btn-primary" id="every-use">毎日利用</button>
+                    <button class="btn btn-success" id="order-save">注文確定</button>
+                </div>
+                <div class="btn-group2">
+                    <button class="btn btn-danger" id="every-cancel">毎日キャンセル</button>
+                </div>
             </div>
         </div>
     </div>

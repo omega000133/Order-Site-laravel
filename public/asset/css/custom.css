@@ -9,12 +9,12 @@
 .schedule-calendar {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 20px;
     align-items: flex-end;
     width: 100% !important;
 }
 .card {
-    width: 80% !important;
+    width: 78% !important;
 }
 .table th {
     font-size: 1rem !important;
@@ -22,7 +22,7 @@
     cursor: pointer;
 }
 .card table td {
-    padding: 3rem 4.5rem;
+    padding: 3rem 4rem;
     cursor: pointer;
     position: relative;
 }
@@ -44,22 +44,42 @@
 }
 .control-part2 {
     display: flex;
-    flex-direction: column;
-    width: 15% !important;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 5px;
+    width: 20%;
 }
-#order-save {
+.control-part2 .btn-group1, .control-part2 .btn-group2 {
+    display: flex;
+    flex-direction: column;
+}
+#order-save, #order-cancel {
     margin-top: 10px;
 }
 
-
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1650px) {
     .schedule-calendar {
         flex-direction: column;
     }
     .card {
         width: 100% !important;
     }
+    .control-part2 {
+        margin-top: 10px;
+        width: 100% !important;
+        justify-content: center;
+        gap: 15px;
+    }
+    .control-part2 .btn-group1, .control-part2 .btn-group2 {
+        flex-direction: row-reverse;
+        gap: 15px;
+    }
+    #order-save, #order-cancel {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
     .card table td {
         padding: 1.5rem 2rem;
     }
@@ -72,17 +92,14 @@
     #monthYear {
         padding: 0 15px;
     }
-    .control-part2 {
-        flex-direction: row;
-        width: 100% !important;
-        justify-content: center;
-    }
-    #order-save {
-        margin-left: 10px;
-        margin-top: 0;
-    }
     .table th {
         font-size: 0.75rem !important;
         padding: 1rem 2rem !important;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .control-part2 .btn-group1, .control-part2 .btn-group2 {
+        flex-direction: column;
     }
 }
