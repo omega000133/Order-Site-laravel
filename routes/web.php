@@ -28,6 +28,8 @@ Route::get('/mailSended', [App\Http\Controllers\VerificationController::class, '
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
+Route::get('/usage', [App\Http\Controllers\UsageController::class, 'index'])->name('usage');
+
 
 Route::post('/home/order/', 'App\Http\Controllers\HomeController@store')->name('home.store');
 Route::post('/user/store', 'App\Http\Controllers\UserController@store')->name('user.store');

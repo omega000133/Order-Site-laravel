@@ -119,7 +119,7 @@
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="" class="menu-link">
+                            <a href="{{ route('usage') }}" class="menu-link">
                                 <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>
                                 <div data-i18n="ご利用案内ページ">ご利用案内ページ</div>
                             </a>

@@ -117,6 +117,23 @@
 #user-tbody tr td {
     text-align: center !important;
 }
-@media only screen and (max-width: 768px) {
 
+
+/* usage page */
+.user-profile-header-banner {
+    height: 200px !important;
+}
+.user-profile-header-banner img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+.me-1 {
+    /* color: #636578 !important; */
+}
+
+@media only screen and (max-width: 450px) {
+    .user-profile-header-banner {
+        height: 60px !important;
+    }
 }

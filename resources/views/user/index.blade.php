@@ -2,7 +2,7 @@
 @section('content')
     <!-- Content -->
     <div class="card mt-3">
-        <h5 class="card-header">会員情報</h5>
+        <h4 class="card-header">会員情報</h4>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
                 <table class="table table-bordered table-hover table-striped">
@@ -52,7 +52,7 @@
         </div>
     </div>
     <div class="card mt-5">
-        <h5 class="card-header">お支払い/履歴</h5>
+        <h4 class="card-header">お支払い/履歴</h4>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
                 <table class="table table-bordered table-hover table-striped">
