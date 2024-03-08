@@ -103,8 +103,17 @@
                                 <div data-i18n="注文ページ">注文ページ</div>
                             </a>
                         </li>
+                    @endif
+                    @auth
+                        @if (Auth::user()->role == 2)
                         <li class="menu-item">
-                            <a href=" " class="menu-link">
+                            <a href="{{ route('home') }}" class="menu-link">
+                                <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
+                                <div data-i18n="注文ページ">注文ページ</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('user') }}" class="menu-link">
                                 <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
                                 <div data-i18n="マイページ">マイページ</div>
                             </a>
@@ -115,17 +124,8 @@
                                 <div data-i18n="ご利用案内ページ">ご利用案内ページ</div>
                             </a>
                         </li>
-                    @endif
-                    {{-- @auth
-                        @if (Auth::user()->role == 2)
-                            <li class="menu-item">
-                                <a href="{{ route('mainInfo', ['c_name' => auth()->user()->c_name]) }}" class="menu-link">
-                                    <i class="menu-icon tf-icons mdi mdi-form-select"></i>
-                                    <div data-i18n="求人情報管理">求人情報管理</div>
-                                </a>
-                            </li>
                         @endif
-                    @endauth --}}
+                    @endauth
                 </ul>
             </aside>
             <!-- / Menu -->

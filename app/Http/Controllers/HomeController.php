@@ -25,8 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $totalOrders = Order::pluck('order_date')->toArray(); // Convert to array
-        return view('home', ['totalOrders' => $totalOrders]);
+        if(Auth::check()) {
+            $email = Auth::user()->email;
+            $totalOrders = Order::where('email', $email)->pluck('order_date')->toArray(); 
+            return view('home', ['totalOrders' => $totalOrders]);
+        } else {
+            return redirect()->route('login'); 
+        }
     }
 
     public function store(Request $request)
