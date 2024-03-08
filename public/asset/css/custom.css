@@ -4,6 +4,12 @@
 .app-brand-logo img {
     width: 190px !important;
 }
+#color-footer {
+    margin-top: 60px !important;
+}
+#footer-text {
+    text-align: center !important;
+}
 
 
 /* order manage page */

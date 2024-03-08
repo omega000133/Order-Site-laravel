@@ -119,7 +119,7 @@
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href=" " class="menu-link">
+                            <a href="" class="menu-link">
                                 <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>
                                 <div data-i18n="ご利用案内ページ">ご利用案内ページ</div>
                             </a>
@@ -167,9 +167,26 @@
                         </ul>
                     </div>
                 </nav>
+                <div class="content-wrapper">
+                     <div class="container-xxl flex-grow-1 container-p-y">
 
-                @yield('content')
+                         @yield('content')
 
+                         <section id="color-footer">
+                            <footer class="footer bg-primary mb-4">
+                                <div class="container-fluid d-flex flex-md-row flex-column justify-content-between align-items-md-center gap-1 container-p-x py-3">
+                                <div id="footer-text">
+                                    <a href="{{ route('home') }}" class="footer-text fw-bolder">成田高等学校付属小学校<br>お弁当注文サイト</a>
+                                </div>
+                                <div>
+                                    <a href="javascript:void(0)" class="footer-link me-4">会員規約</a>
+                                    <a href="javascript:void(0)" class="footer-link me-4">プライバシーポリシー</a>
+                                </div>
+                                </div>
+                            </footer>
+                        </section>
+                     </div>
+                </div>
                 <div class="layout-overlay layout-menu-toggle"></div>
                 <div class="drag-target"></div>
             </div>
