@@ -27,3 +27,6 @@ Route::get('/mailSended', [App\Http\Controllers\VerificationController::class, '
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/home/order/', 'App\Http\Controllers\HomeController@store')->name('home.store');
+
