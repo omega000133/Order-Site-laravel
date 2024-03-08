@@ -2,7 +2,7 @@
 @section('content')
     <div class="content-wrapper">
         <div class="container-xxl schedule-calendar">
-            <div class="card">
+            <div class="card home-card">
                 <div class="control-part1">
                     <button class="btn btn-danger" id="prevBtn">&lt;</button>
                     <h2 id="monthYear"></h2>

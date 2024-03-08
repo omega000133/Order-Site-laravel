@@ -61,9 +61,48 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $index = $request->index;
+        $email = $request->email;
+        $password = $request->password;
+        $p_name1 = $request->p_name1;
+        $p_name2 = $request->p_name2;
+        $p_phone = $request->p_phone;
+        $postcode = $request->postcode;
+        $prefecture = $request->prefecture;
+        $address = $request->address;
+        $building = $request->building;
+        $card = $request->card;
+
+        $user = User::find($index);
+        if ($user) {
+            $user->update([
+                'email' => $email,
+                'password' => $password,
+                'p_name1' => $p_name1,
+                'p_name2' => $p_name2,
+                'p_phone' => $p_phone,
+                'postcode' => $postcode,
+                'prefecture' => $prefecture,
+                'address' => $address,
+                'building' => $building,
+                'card' => $card
+            ]);
+
+            $data = [
+                'status' => 200,
+                'message' => '更新成功',
+                'user' => $user 
+            ];
+            return response()->json($data, 200);
+        } else {
+            $data = [
+                'status' => 401,
+                'message' => 'エラーが発生しました',
+            ];
+            return response()->json($data, 401);
+        }
     }
 
     /**

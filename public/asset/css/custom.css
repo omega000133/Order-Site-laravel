@@ -5,6 +5,7 @@
     width: 190px !important;
 }
 
+
 /* order manage page */
 .schedule-calendar {
     display: flex;
@@ -13,7 +14,7 @@
     align-items: flex-end;
     width: 100% !important;
 }
-.card {
+.home-card {
     width: 78% !important;
 }
 .table th {
@@ -21,12 +22,12 @@
     padding: 1rem 4rem !important;
     cursor: pointer;
 }
-.card table td {
+.home-card table td {
     padding: 3rem 4rem;
     cursor: pointer;
     position: relative;
 }
-.card table td span{
+.home-card table td span{
     font-size: 20px;
     position: absolute;
     left: 50%;
@@ -61,7 +62,7 @@
     .schedule-calendar {
         flex-direction: column;
     }
-    .card {
+    .home-card {
         width: 100% !important;
     }
     .control-part2 {
@@ -80,10 +81,10 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .card table td {
+    .home-card table td {
         padding: 1.5rem 2rem;
     }
-    .card table td span{
+    .home-card table td span{
         bottom: 0;
     }
     .control-part1 {
@@ -102,4 +103,14 @@
     .control-part2 .btn-group1, .control-part2 .btn-group2 {
         flex-direction: column;
     }
+}
+
+
+
+/* user page */
+#user-tbody tr td {
+    text-align: center !important;
+}
+@media only screen and (max-width: 768px) {
+
 }
