@@ -28,23 +28,23 @@
                        </thead>
                        <tbody id="user_tbody">
                            <tr>
-                              <td>{{ $user->id }}</td>
-                              <td>{{ $user->email }}</td>
-                              <td>{{ $user->c_name1 }}</td>
-                              <td>{{ $user->c_name2 }}</td>
-                              <td>{{ $user->c_grade }}</td>
-                              <td>{{ $user->p_name1 }}</td>
-                              <td>{{ $user->p_name2 }}</td>
-                              <td>{{ $user->p_phone }}</td>
-                              <td>{{ $user->postcode }}</td>
-                              <td>{{ $user->prefecture }}</td>
-                              <td>{{ $user->address }}</td>
-                              <td>{{ $user->building }}</td>
-                              <td>{{ $user->card }}</td>
+                              <td>{{ $my_info->id }}</td>
+                              <td>{{ $my_info->email }}</td>
+                              <td>{{ $my_info->c_name1 }}</td>
+                              <td>{{ $my_info->c_name2 }}</td>
+                              <td>{{ $my_info->c_grade }}</td>
+                              <td>{{ $my_info->p_name1 }}</td>
+                              <td>{{ $my_info->p_name2 }}</td>
+                              <td>{{ $my_info->p_phone }}</td>
+                              <td>{{ $my_info->postcode }}</td>
+                              <td>{{ $my_info->prefecture }}</td>
+                              <td>{{ $my_info->address }}</td>
+                              <td>{{ $my_info->building }}</td>
+                              <td>{{ $my_info->card }}</td>
                               <td>
                                  <button type="button"
                                        class="btn btn-icon btn-primary waves-effect waves-light edit_btn"
-                                       data-val="{{ $user->id }}">
+                                       data-val="{{ $my_info->id }}">
                                        <span class="<tf-icons mdi mdi-pencil-outline"></span>
                                  </button>
                               </td>

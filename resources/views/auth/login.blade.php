@@ -160,16 +160,16 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="./asset/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
-    <script src="./asset/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
-    <script src="./asset/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
+    {{-- <script src="./asset/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script> --}}
+    {{-- <script src="./asset/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script> --}}
+    {{-- <script src="./asset/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script> --}}
     <script src="./asset/vendor/libs/toastr/toastr.js"></script>
     
     <!-- Main JS -->
     <script src="./asset/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="./asset/js/pages-auth.js"></script>
+    {{-- <script src="./asset/js/pages-auth.js"></script> --}}
   
     @if(session('error'))
     <script>
