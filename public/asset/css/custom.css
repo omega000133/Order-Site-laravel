@@ -6,9 +6,14 @@
 }
 #color-footer {
     margin-top: 60px !important;
+    background-color: #512d75;
 }
-#footer-text {
+#footer-text, .footer-text {
     text-align: center !important;
+    color: #FFF !important;
+}
+.footer-link {
+    color: #FFF !important;
 }
 
 
@@ -120,20 +125,21 @@
 
 
 /* usage page */
-.user-profile-header-banner {
-    height: 200px !important;
+.massetb-4 {
+    padding: 30px;
 }
-.user-profile-header-banner img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+.usage-card-body {
+    border: 1px solid #636578;
+    padding-left: 30px;
+
 }
 .me-1 {
-    /* color: #636578 !important; */
+    color: #636578 !important;
 }
 
 @media only screen and (max-width: 450px) {
-    .user-profile-header-banner {
-        height: 60px !important;
+    .massetb-4 {
+        padding: 10px;
     }
 }
+

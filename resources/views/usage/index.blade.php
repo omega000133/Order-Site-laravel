@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 @section('content')
 <div class="card massetb-4">
-   <div class="user-profile-header-banner">
+   {{-- <div class="user-profile-header-banner">
       <img src="../../asset/img/pages/profile-banner.png" alt="Banner image" class="rounded-top">
-    </div>
-   <h4 class="card-header">ご利用案内</h4>
-   <div class="card-body">
-      <p class="demo-inline-spacing mt-4">
+    </div> --}}
+   <h3 class="card-header">ご利用案内</h3>
+   <div class="card-body usage-card-body">
+      <p class="demo-inline-spacing mt-5">
          <a class="me-1" data-bs-toggle="collapse" href="#usage-method" aria-expanded="false" aria-controls="collapseExample">
             ▼ご注文方法
           </a>
@@ -20,7 +20,7 @@
             </div>
           </div>
       </p>
-      <p class="demo-inline-spacing mt-4">
+      <p class="demo-inline-spacing mt-5">
           <a class="me-1" data-bs-toggle="collapse" href="#usage-period" aria-expanded="false" aria-controls="collapseExample">
             ▼ご注文期限と変更
           </a>
@@ -34,7 +34,7 @@
             </div>
           </div>
       </p>
-      <p class="demo-inline-spacing mt-4">
+      <p class="demo-inline-spacing mt-5">
           <a class="me-1" data-bs-toggle="collapse" href="#usage-pay" aria-expanded="false" aria-controls="collapseExample">
             ▼お支払い方法
          </a>
@@ -48,7 +48,7 @@
            </div>
          </div>
       </p>
-      <p class="demo-inline-spacing mt-4">
+      <p class="demo-inline-spacing mt-5">
           <a class="me-1" data-bs-toggle="collapse" href="#usage-other" aria-expanded="false" aria-controls="collapseExample">
             ▼その他注意事項
           </a>
