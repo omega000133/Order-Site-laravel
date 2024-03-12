@@ -60,7 +60,7 @@ class RegisterController extends Controller
             'postcode' => ['required', 'string', 'max:255'],
             'prefecture' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'building' => ['required', 'string', 'max:255'],
+            'building' => ['string', 'max:255'],
             'card' => ['required', 'string', 'max:255'],
         ]);
     }

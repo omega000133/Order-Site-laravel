@@ -124,9 +124,11 @@
                     <span>パスワード再発行はこちら</span>
                   </a>
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                   <button class="btn btn-primary d-grid w-100" type="submit">ログイン</button>
                 </div>
+                <a href="/" class="cancel-button">キャンセル</a>
+
                 <!-- <p class="text-center">
                   <span>初めてですか？</span>
                   <a href="{{route('register')}}">

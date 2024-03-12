@@ -16,6 +16,21 @@
     color: #FFF !important;
 }
 
+/* register and login page */
+.cancel-button {
+    width: 100%;
+    display: block;
+    background-color: red;
+    color: #FFF;
+    padding: 0.4rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+
 
 /* order manage page */
 .schedule-calendar {

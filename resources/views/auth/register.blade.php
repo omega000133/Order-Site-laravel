@@ -295,7 +295,7 @@
                                 <div class="form-floating form-floating-outline col">
                                     <input type="text"
                                         class="form-control @error('building') is-invalid @enderror" id="building"
-                                        name="building" placeholder="建物・部屋番号" value="{{ old('building') }}" required
+                                        name="building" placeholder="建物・部屋番号" value="{{ old('building') }}" 
                                         autocomplete="building" autofocus />
                                     @error('building')
                                         <span class="invalid-feedback" role="alert">
@@ -315,9 +315,11 @@
                                     <label for="card">クレジットカード</label>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-2">
                                 <button class="btn btn-primary d-grid w-100" type="submit">新規登録</button>
                             </div>
+                            <a href="/" class="cancel-button">キャンセル</a>
+
                             <p class="text-center">
                                 <span>すでに登録されていますか？</span>
                                 <a href="{{ route('login') }}">
