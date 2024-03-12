@@ -32,7 +32,7 @@ class VerifyMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('メール確認')
+        return $this->subject('【付属小学校お弁当注文サイト】メールアドレスの認証')
                     ->view('emails.user-verify', $this->mailData);
     }
 }
