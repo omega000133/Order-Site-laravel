@@ -37,6 +37,7 @@ Route::post('/user/delete', 'App\Http\Controllers\UserController@delete')->name(
 
 
 //inside site
+Route::post('/home/get/', 'App\Http\Controllers\HomeController@get')->name('home.get');
 
 
 

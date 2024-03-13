@@ -86,4 +86,10 @@ class HomeController extends Controller
             return response()->json($data, 401);
         }
     }
+
+    public function get(Request $request) {
+        $grade = $request -> grade;
+        $date = $request -> date;
+        
+    }
 }
