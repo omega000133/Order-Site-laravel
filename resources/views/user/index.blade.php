@@ -341,10 +341,12 @@
             } else if (address == "") {
                 toastr.error("住所を入力してください。");
                 $("#address").focus();
-            } else if (building == "") {
-                toastr.error("権限を入力してください。");
-                $("#building").focus();
-            } else if (card == "") {
+            } 
+            // else if (building == "") {
+            //     toastr.error("権限を入力してください。");
+            //     $("#building").focus();
+            // } 
+            else if (card == "") {
                 toastr.error("クレジットカードを入力してください。");
                 $("#card").focus();
             } else {
