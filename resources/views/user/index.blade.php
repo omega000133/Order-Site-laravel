@@ -272,16 +272,16 @@
         $("#edit_btn").click(function() {
             $("#update_modal").show();
             index = $(this).attr("data-val");
-            $("#email").val($(this).parent().parent().find(':nth-child(2)').html());
+            $("#email").val($(this).parent().parent().find(':nth-child(2)').text());
             $("#password").val("");
-            $("#p_name1").val($(this).parent().parent().find(':nth-child(6)').html());
-            $("#p_name2").val($(this).parent().parent().find(':nth-child(7)').html());
-            $("#p_phone").val($(this).parent().parent().find(':nth-child(8)').html());
-            $("#postcode").val($(this).parent().parent().find(':nth-child(9)').html());
-            $("#prefecture").val($(this).parent().parent().find(':nth-child(10)').html());
-            $("#address").val($(this).parent().parent().find(':nth-child(11)').html());
-            $("#building").val($(this).parent().parent().find(':nth-child(12)').html());
-            $("#card").val($(this).parent().parent().find(':nth-child(13)').html());
+            $("#p_name1").val($(this).parent().parent().find(':nth-child(6)').text());
+            $("#p_name2").val($(this).parent().parent().find(':nth-child(7)').text());
+            $("#p_phone").val($(this).parent().parent().find(':nth-child(8)').text());
+            $("#postcode").val($(this).parent().parent().find(':nth-child(9)').text());
+            $("#prefecture").val($(this).parent().parent().find(':nth-child(10)').text());
+            $("#address").val($(this).parent().parent().find(':nth-child(11)').text());
+            $("#building").val($(this).parent().parent().find(':nth-child(12)').text());
+            $("#card").val($(this).parent().parent().find(':nth-child(13)').text());
         });
 
         $("#update_btn").click(function() {
@@ -294,7 +294,7 @@
             var postcode = $("#postcode").val();
             var selectedOption1 = $('#prefecture').find('option:selected');
             if (!selectedOption1.is(':first-child')) {
-                var prefecture = selectedOption1.html();
+                var prefecture = selectedOption1.text();
             }
             var address = $("#address").val();
             var building = $("#building").val();
