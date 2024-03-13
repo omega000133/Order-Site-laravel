@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="./asset/vendor/css/rtl/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="./asset/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="./asset/css/demo.css" />
-    
+
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="./asset/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="./asset/vendor/libs/typeahead-js/typeahead.css" />
@@ -100,30 +100,97 @@
                         <li class="menu-item">
                             <a href="{{ route('home') }}" class="menu-link">
                                 <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
-                                <div data-i18n="注文ページ">注文ページ</div>
+                                <div data-i18n="ホーム">ホーム</div>
                             </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle waves-effect">
+                                <i class="menu-icon tf-icons mdi mdi-grid"></i>
+                                <div data-i18n="契約/注文">契約/注文</div>
+                            </a>
+
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="" class="menu-link">
+                                        <div data-i18n="登録/変更">登録/変更</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="" class="menu-link">
+                                        <div data-i18n="一括休配">一括休配</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="" class="menu-link">
+                                        <div data-i18n="操作ログ">操作ログ</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle waves-effect">
+                                <i class="menu-icon tf-icons mdi mdi-google-circles-extended"></i>
+                                <div data-i18n="設 定">設 定</div>
+                            </a>
+
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="" class="menu-link">
+                                        <div data-i18n="休日">休日</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="" class="menu-link">
+                                        <div data-i18n="メニュー表">メニュー表</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="" class="menu-link">
+                                        <div data-i18n="お知らせ">お知らせ</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="" class="menu-link">
+                                        <div data-i18n="商品">商品</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle waves-effect">
+                                <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>
+                                <div data-i18n="請 求">請 求</div>
+                            </a>
+
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="" class="menu-link">
+                                        <div data-i18n="請求データ">請求データ</div>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     @endif
                     @auth
                         @if (Auth::user()->role == 2)
-                        <li class="menu-item">
-                            <a href="{{ route('home') }}" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
-                                <div data-i18n="注文ページ">注文ページ</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ route('user') }}" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
-                                <div data-i18n="マイページ">マイページ</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ route('usage') }}" class="menu-link">
-                                <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>
-                                <div data-i18n="ご利用案内ページ">ご利用案内ページ</div>
-                            </a>
-                        </li>
+                            <li class="menu-item">
+                                <a href="{{ route('home') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
+                                    <div data-i18n="注文ページ">注文ページ</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('user') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
+                                    <div data-i18n="マイページ">マイページ</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('usage') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons mdi mdi-file-document-multiple-outline"></i>
+                                    <div data-i18n="ご利用案内ページ">ご利用案内ページ</div>
+                                </a>
+                            </li>
                         @endif
                     @endauth
                 </ul>
@@ -168,24 +235,26 @@
                     </div>
                 </nav>
                 <div class="content-wrapper">
-                     <div class="container-xxl flex-grow-1 container-p-y">
+                    <div class="container-xxl flex-grow-1 container-p-y">
 
-                         @yield('content')
+                        @yield('content')
 
-                         <section id="color-footer">
+                        <section id="color-footer">
                             <footer class="footer mb-4">
-                                <div class="container-fluid d-flex flex-md-row flex-column justify-content-between align-items-md-center gap-1 container-p-x py-3">
-                                <div id="footer-text">
-                                    <a href="{{ route('home') }}" class="footer-text fw-bolder">成田高等学校付属小学校<br>お弁当注文サイト</a>
-                                </div>
-                                <div>
-                                    <a href="javascript:void(0)" class="footer-link me-4">会員規約</a>
-                                    <a href="javascript:void(0)" class="footer-link me-4">プライバシーポリシー</a>
-                                </div>
+                                <div
+                                    class="container-fluid d-flex flex-md-row flex-column justify-content-between align-items-md-center gap-1 container-p-x py-3">
+                                    <div id="footer-text">
+                                        <a href="{{ route('home') }}"
+                                            class="footer-text fw-bolder">成田高等学校付属小学校<br>お弁当注文サイト</a>
+                                    </div>
+                                    <div>
+                                        <a href="javascript:void(0)" class="footer-link me-4">会員規約</a>
+                                        <a href="javascript:void(0)" class="footer-link me-4">プライバシーポリシー</a>
+                                    </div>
                                 </div>
                             </footer>
                         </section>
-                     </div>
+                    </div>
                 </div>
                 <div class="layout-overlay layout-menu-toggle"></div>
                 <div class="drag-target"></div>

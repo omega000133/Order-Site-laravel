@@ -26,13 +26,20 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::check()) {
-            $email = Auth::user()->email;
-            $totalOrders = Order::where('email', $email)->pluck('order_date')->toArray(); 
-            return view('home', ['totalOrders' => $totalOrders]);
+            if(Auth::user()->role == 2 ) {
+                $email = Auth::user()->email;
+                $totalOrders = Order::where('email', $email)->pluck('order_date')->toArray(); 
+                return view('home1', ['totalOrders' => $totalOrders]);
+            }
+            else if(Auth::user()->role == 1) {
+                return view('home2');
+            }
         } else {
             return redirect()->route('login'); 
         }
     }
+
+
 
     public function store(Request $request)
     {
