@@ -63,17 +63,17 @@
                     row.append(gradeCell);
                     for (let j = 1; j <= daysInMonth; j++) {
                         const cell = $("<td>");
+                        const formattedDate =
+                            `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + j).slice(-2)}`;
+                        console.log(formattedDate)
+
+                        row.append(cell);
+
                         if(i !== 0) {
-                           const formattedDate =
-                               `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + j).slice(-2)}`;
-                           console.log(formattedDate)
-   
-                           row.append(cell);
-   
                            $.post("{{ route('home.get') }}", {
                                "_token": $('meta[name="csrf_token"]').attr('content'),
-                               "grade" : i,
-                               "date" : formattedDate
+                               "grade": i,
+                               "date": formattedDate
                            }, function(data) {
                                var resp = data.info;
                                if (data.status == 200) {
@@ -86,7 +86,6 @@
                                toastr.error("エラーが発生しました。");
                            });
                         }
-                        
                     }
                     tbody.append(row);
                 }
