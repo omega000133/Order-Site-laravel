@@ -8,12 +8,18 @@
     margin-top: 60px !important;
     background-color: #512d75;
 }
-#footer-text, .footer-text {
+#footer-text,
+.footer-text {
     text-align: center !important;
-    color: #FFF !important;
+    color: #fff !important;
+}
+.footer-linkpart {
+    text-align: center;
+    margin-top: 1rem;
 }
 .footer-link {
-    color: #FFF !important;
+    color: #fff !important;
+    font-size: 0.8rem;
 }
 
 /* register and login page */
@@ -21,7 +27,7 @@
     width: 100%;
     display: block;
     background-color: red;
-    color: #FFF;
+    color: #fff;
     padding: 0.4rem;
     border-radius: 10px;
     display: flex;
@@ -30,9 +36,8 @@
     margin-bottom: 0.5rem;
 }
 .cancel-button:hover {
-    color: #FFF !important;
+    color: #fff !important;
 }
-
 
 /* order manage page */
 .schedule-calendar {
@@ -55,7 +60,7 @@
     cursor: pointer;
     position: relative;
 }
-.home-card table td span{
+.home-card table td span {
     font-size: 20px;
     position: absolute;
     left: 50%;
@@ -78,11 +83,13 @@
     gap: 5px;
     width: 20%;
 }
-.control-part2 .btn-group1, .control-part2 .btn-group2 {
+.control-part2 .btn-group1,
+.control-part2 .btn-group2 {
     display: flex;
     flex-direction: column;
 }
-#order-save, #order-cancel {
+#order-save,
+#order-cancel {
     margin-top: 10px;
 }
 
@@ -99,11 +106,13 @@
         justify-content: center;
         gap: 15px;
     }
-    .control-part2 .btn-group1, .control-part2 .btn-group2 {
+    .control-part2 .btn-group1,
+    .control-part2 .btn-group2 {
         flex-direction: row-reverse;
         gap: 15px;
     }
-    #order-save, #order-cancel {
+    #order-save,
+    #order-cancel {
         margin-top: 0;
     }
 }
@@ -112,7 +121,7 @@
     .home-card table td {
         padding: 1.5rem 2rem;
     }
-    .home-card table td span{
+    .home-card table td span {
         bottom: 0;
     }
     .control-part1 {
@@ -128,18 +137,16 @@
 }
 
 @media only screen and (max-width: 450px) {
-    .control-part2 .btn-group1, .control-part2 .btn-group2 {
+    .control-part2 .btn-group1,
+    .control-part2 .btn-group2 {
         flex-direction: column;
     }
 }
-
-
 
 /* user page */
 #user-tbody tr td {
     text-align: center !important;
 }
-
 
 /* usage page */
 .massetb-4 {
@@ -148,7 +155,6 @@
 .usage-card-body {
     border: 1px solid #636578;
     padding-left: 30px;
-
 }
 .me-1 {
     color: #636578 !important;
@@ -160,8 +166,52 @@
     }
 }
 
-
 /* home2 page */
 .monthly-table th {
     padding: 1rem !important;
+}
+
+/* userManage page */
+.grade-search {
+    display: flex;
+    width: 70%;
+    margin-left: auto;
+}
+.graduation_year {
+    text-align: right !important;
+}
+label {
+    color: #000;
+}
+.label-padding {
+    padding-right: 5px !important;
+}
+#graduation_year {
+    height: 35px !important;
+}
+[type="search"] {
+    outline-offset: 0 !important;
+    -webkit-appearance: textfield;
+}
+
+@media only screen and (max-width: 850px) {
+    .grade-search {
+        width: 100% !important;
+    }
+    .graduation_year {
+        text-align: left !important;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .grade-search {
+        flex-direction: column !important;
+    }
+}
+@media screen and (max-width: 767px) {
+    div.dataTables_wrapper div.dataTables_length,
+    div.dataTables_wrapper div.dataTables_filter,
+    div.dataTables_wrapper div.dataTables_info,
+    div.dataTables_wrapper div.dataTables_paginate {
+        text-align: left !important;
+    }
 }

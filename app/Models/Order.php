@@ -9,6 +9,7 @@ class Order extends Model
     use HasFactory;
     protected $fillable = [
         'email',
+        'c_grade',
         'order_date'
     ];
 }

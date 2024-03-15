@@ -46,9 +46,9 @@
     <link rel="stylesheet" href="./asset/vendor/libs/swiper/swiper.css" />
 
     {{-- <link rel="stylesheet" href="./asset/vendor/libs/fullcalendar/fullcalendar.css" />
-    <link rel="stylesheet" href="./asset/vendor/libs/flatpickr/flatpickr.css" />
+    {{-- <link rel="stylesheet" href="./asset/vendor/libs/flatpickr/flatpickr.css" /> --}}
     <link rel="stylesheet" href="./asset/vendor/libs/select2/select2.css" />
-    <link rel="stylesheet" href="./asset/vendor/libs/quill/editor.css" /> --}}
+    <link rel="stylesheet" href="./asset/vendor/libs/quill/editor.css" /> 
     <!-- Vendor -->
     <link rel="stylesheet" href="./asset/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
     <!-- Page -->
@@ -67,7 +67,14 @@
     <script src="./asset/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="./asset/js/config.js"></script>
-    <script src="./asset/vendor/libs/jquery/jquery.js"></script>
+    {{-- <script src="./asset/vendor/libs/jquery/jquery.js"></script> --}}
+
+    {{-- dataTable css and js --}}
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    {{-- <script src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/Japanese.json"></script> --}}
 </head>
 
 <body>
@@ -111,7 +118,7 @@
 
                             <ul class="menu-sub">
                                 <li class="menu-item">
-                                    <a href="" class="menu-link">
+                                    <a href="{{ route('userManage') }}" class="menu-link">
                                         <div data-i18n="登録/変更">登録/変更</div>
                                     </a>
                                 </li>
@@ -247,9 +254,9 @@
                                         <a href="{{ route('home') }}"
                                             class="footer-text fw-bolder">成田高等学校付属小学校<br>お弁当注文サイト</a>
                                     </div>
-                                    <div>
+                                    <div class="footer-linkpart">
                                         <a href="javascript:void(0)" class="footer-link me-4">会員規約</a>
-                                        <a href="javascript:void(0)" class="footer-link me-4">プライバシーポリシー</a>
+                                        <a href="javascript:void(0)" class="footer-link">プライバシーポリシー</a>
                                     </div>
                                 </div>
                             </footer>
@@ -277,7 +284,7 @@
 <!-- endbuild -->
 
 <!-- Vendors JS -->
-<script src="./asset/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+{{-- <script src="./asset/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script> --}}
 <script src="./asset/vendor/libs/apex-charts/apexcharts.js"></script>
 <script src="./asset/vendor/libs/swiper/swiper.js"></script>
 <script src="./asset/vendor/libs/dropzone/dropzone.js"></script>
@@ -287,9 +294,9 @@
 <script src="./asset/vendor/libs/toastr/toastr.js"></script>
 
 {{-- <script src="./asset/vendor/libs/fullcalendar/fullcalendar.js"></script>
-<script src="./asset/vendor/libs/select2/select2.js"></script>
+<script src="./asset/vendor/libs/select2/select2.js"></script> --}}
 <script src="./asset/vendor/libs/flatpickr/flatpickr.js"></script>
-<script src="./asset/vendor/libs/moment/moment.js"></script> --}}
+<script src="./asset/vendor/libs/moment/moment.js"></script> 
 <!-- Main JS -->
 <script src="./asset/js/main.js"></script>
 
@@ -298,8 +305,7 @@
 <script src="./asset/js/forms-file-upload.js"></script>
 <script src="./asset/js/pages-auth.js"></script>
 <script src="./asset/js/ui-toasts.js"></script>
-{{-- <script src="./asset/js/app-calendar-events.js"></script>
-<script src="./asset/js/app-calendar.js"></script> --}}
-{{-- <script src="./asset/js/custom.js"></script> --}}
+{{-- <script src="./asset/js/tables-datatables-advanced.js"></script> --}}
+
 
 </html>
