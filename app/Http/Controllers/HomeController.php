@@ -25,17 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::check()) {
-            if(Auth::user()->role == 2 ) {
+        if (Auth::check()) {
+            if (Auth::user()->role == 2) {
                 $email = Auth::user()->email;
-                $totalOrders = Order::where('email', $email)->pluck('order_date')->toArray(); 
+                $totalOrders = Order::where('email', $email)->pluck('order_date')->toArray();
                 return view('home1', ['totalOrders' => $totalOrders]);
-            }
-            else if(Auth::user()->role == 1) {
+            } else if (Auth::user()->role == 1) {
                 return view('home2');
             }
         } else {
-            return redirect()->route('login'); 
+            return redirect()->route('login');
         }
     }
 
@@ -45,6 +44,7 @@ class HomeController extends Controller
     {
         if (Auth::check()) {
             $email = Auth::user()->email;
+            $c_grade = Auth::user()->c_grade;
             $order_dates = $request->order_date;
             if ($order_dates == null) {
                 $total_orders = Order::where('email', $email)
@@ -66,16 +66,17 @@ class HomeController extends Controller
                 foreach ($order_dates as $order_date) {
                     $orders[] = Order::create([
                         'email' => $email,
+                        'c_grade' => $c_grade,
                         'order_date' => $order_date
                     ]);
                 }
-                
+
                 $data = [
                     'status' => 200,
                     'message' => '注文が成功的に登録されました。',
                     'orders' => $orders
                 ];
-                
+
                 return response()->json($data, 200);
             }
         } else {
@@ -87,9 +88,69 @@ class HomeController extends Controller
         }
     }
 
-    public function get(Request $request) {
-        $grade = $request -> grade;
-        $date = $request -> date;
-        
+    // SELECT
+//     c_grade,
+//     order_date,
+//     COUNT(*) AS order_count
+// FROM
+//     orders
+// GROUP BY
+//     c_grade,
+//     order_date
+// ORDER BY
+//     c_grade,
+//     order_date;
+
+    public function get(Request $request)
+    {
+        $orderCounts = Order::select('c_grade', 'order_date', \DB::raw('COUNT(*) as order_count'))
+            ->groupBy('c_grade', 'order_date')
+            ->orderBy('c_grade')
+            ->orderBy('order_date')
+            ->get();
+
+        $orderByDates = Order::select('order_date', \DB::raw('COUNT(*) as orderByDate'))
+            ->groupBy('order_date')
+            ->orderBy('order_date')
+            ->get();
+
+        if (Auth::user()->role == 1) {
+            $result1 = [];
+            foreach ($orderCounts as $orderCount) {
+                $cGrade = $orderCount->c_grade;
+                $orderDate = $orderCount->order_date;
+                $count = $orderCount->order_count;
+
+                if (!isset($result1[$cGrade])) {
+                    $result1[$cGrade] = [];
+                }
+
+                $result1[$cGrade][$orderDate] = $count;
+            }
+
+            $result2 = [];
+            foreach ($orderByDates as $orderByDate) {
+                $order_date = $orderByDate -> order_date;
+                $counts = $orderByDate -> orderByDate;
+                if(!isset($result2[$order_date])) {
+                    $result2[$order_date] = [];
+                }
+                $result2[$order_date] = $counts;
+            } 
+
+            $data = [
+                'status' => 200,
+                'orderCount' => $result1,
+                'orderByDate' => $result2
+            ];
+            return response()->json($data, 200);
+
+        } else {
+            $data = [
+                'status' => 401,
+                'message' => "エラーが発生しました。"
+            ];
+            return response()->json($data, 401);
+        }
     }
 }
