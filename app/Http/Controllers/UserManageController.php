@@ -11,7 +11,8 @@ class UserManageController extends Controller
      */
     public function index()
     {
-        return view('userManage.index');
+        $students = User::where('role', 2)->get();
+        return view('userManage.index', ['students' => $students]);
     }
 
     /**
