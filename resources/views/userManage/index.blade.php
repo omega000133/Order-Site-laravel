@@ -68,7 +68,7 @@
                                 <td>{{ $student->id }}</td>
                                 <td>{{ $student->c_name1 }}</td>
                                 <td>{{ $student->c_grade }}</td>
-                                <td>2024</td>
+                                <td>{{ $student->grade_year }}</td>
                                 <td>
                                     <button type="button"
                                         class="btn btn-icon btn-primary waves-effect waves-light edit_btn" data-val="">

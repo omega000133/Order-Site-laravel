@@ -61,6 +61,7 @@ class RegisterController extends Controller
             'prefecture' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             'building' => ['string', 'max:255'],
+            'grade_year' => ['required', 'string', 'max:255'],
             'card' => ['required', 'string', 'max:255'],
         ]);
     }
@@ -86,8 +87,10 @@ class RegisterController extends Controller
             'prefecture' => $data['prefecture'],
             'address' => $data['address'],
             'building' => $data['building'],
+            'grade_year' => $data['grade_year'],
             'card' => $data['card'],
-            'role' => 2
+            'role' => 2,
+            'permission' => 1
         ]);
     }
 }
