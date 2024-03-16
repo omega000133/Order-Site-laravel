@@ -2,7 +2,7 @@
 @section('content')
     <main>
         <section class="fv">
-            <div class="swiper-container">
+            {{-- <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <img src="./assets/img/slider1.jpg" alt="">
@@ -18,9 +18,12 @@
                     <h1 class="wow fadeInUp" data-wow-delay=".5s">成田高等学校付属小学校</h1>
                     <h2 class="wow fadeInUp" data-wow-delay=".8s">お弁当注文サイト</h2>
                 </div>
-                <!-- <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div> -->
-            </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div> --}}
+            <figure class="fv-img">
+                <img src="./assets/img/fv.png" alt="成田高等学校付属小学校お弁当注文サイト">
+            </figure>
         </section>
         <section class="news">
             <div class="wrap">
