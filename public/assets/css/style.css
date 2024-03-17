@@ -483,11 +483,11 @@ header #hamburger.active span:nth-child(3) {
   width: 100vw;
   /* height: 55.74vh; */
 }
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
   .fv {
     height: 40vh;
   }
-}
+} */
 .fv .fv-img {
   width: 100%;
   height: 100%;
