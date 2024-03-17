@@ -282,6 +282,14 @@
             $("#address").val($(this).parent().parent().find(':nth-child(11)').text());
             $("#building").val($(this).parent().parent().find(':nth-child(12)').text());
             $("#card").val($(this).parent().parent().find(':nth-child(13)').text());
+
+            // var prefecture = $(this).parent().parent().find(':nth-child(10)').html();
+            // $("#prefecture").each(function(index) {
+            //     var optionText = $(this).text();
+            //     if (optionText.trim() === prefecture.trim()) {
+            //         $(this).prop("selected", true);
+            //     }
+            // });
         });
 
         $("#update_btn").click(function() {
