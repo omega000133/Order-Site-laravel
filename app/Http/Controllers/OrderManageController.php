@@ -13,8 +13,14 @@ class OrderManageController extends Controller
     public function index(Request $request)
     {
         $id = $request -> id;
-        $order_info = User::where('id', $id)->first();
-        return view('orderManage.index', ['order_info' => $order_info]);
+        $user_info = User::where('id', $id)->first();
+        $user_email = $user_info -> email;
+        $results = Order::where('email', $user_email)->get();
+        $order_info = [];
+        foreach ($results as $result) {
+            $order_info[] = $result->order_date;
+        }
+        return view('orderManage.index', ['user_info' => $user_info, 'order_info' => $order_info]);
     }
 
     /**
@@ -52,9 +58,40 @@ class OrderManageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $change_id = $request -> change_id;
+        $change_date = $request -> change_date;
+        $change_quantity = $request -> change_quantity;
+        $change_user = User::where('id', $change_id)->first();
+        $change_email = $change_user -> email;
+
+        $change_order = Order::where('email', $change_email)
+                            ->where('order_date', $change_date)
+                            ->first();
+        if($change_quantity == 0) {
+            // dd($change_quantity);
+            $change_order->delete();
+            $data = [
+                'status' => 200,
+                'message' => "更新成功"
+            ];
+            return response()->json($data, 200);
+        }
+        if($change_quantity == 1) {
+            $data = [
+                'status' => 200,
+                'message' => "更新成功"
+            ];
+            return response()->json($data, 200);
+        } 
+        if(!$change_order){
+            $data = [
+                'status' => 401,
+                'message' => "エラーが発生しました。"
+            ];
+            return response()->json($data, 401);
+        }
     }
 
     /**

@@ -145,8 +145,6 @@
                                 if (j == daysInMonth + 1 && i !== 7) {
 
                                 }
-
-
                                 row.append(cell);
                             }
                             tbody.append(row);

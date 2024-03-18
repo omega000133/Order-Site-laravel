@@ -42,6 +42,7 @@ Route::get('/userManage', [App\Http\Controllers\UserManageController::class, 'in
 Route::post('/userManage/get', 'App\Http\Controllers\UserManageController@show')->name('userManage.get');
 Route::post('/userManage/update', 'App\Http\Controllers\UserManageController@update')->name('userManage.update');
 Route::get('/orderManage', [App\Http\Controllers\OrderManageController::class, 'index'])->name('orderManage');
+Route::post('/orderManage/update', 'App\Http\Controllers\OrderManageController@update')->name('orderManage.update');
 
 
 
