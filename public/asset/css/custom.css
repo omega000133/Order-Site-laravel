@@ -215,3 +215,8 @@ label {
         text-align: left !important;
     }
 }
+
+
+#monthYear {
+    cursor: pointer !important;
+}

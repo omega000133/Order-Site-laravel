@@ -17,6 +17,51 @@
                     </table>
                 </div>
             </div>
+
+            <!-- Add a modal for choosing month/year -->
+            <div class="modal fade" id="chooseMonthYearModal" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">月/年を選択してください。</h5>
+                            <button type="button" class="cancel_btn btn-close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="selectMonth">Month:</label>
+                                <select class="form-control" id="selectMonth">
+                                    <option value="0">1月</option>
+                                    <option value="1">2月</option>
+                                    <option value="2">3月</option>
+                                    <option value="3">4月</option>
+                                    <option value="4">5月</option>
+                                    <option value="5">6月</option>
+                                    <option value="6">7月</option>
+                                    <option value="7">8月</option>
+                                    <option value="8">9月</option>
+                                    <option value="9">10月</option>
+                                    <option value="10">11月</option>
+                                    <option value="11">12月</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="selectYear">年:</label>
+                                <input type="number" class="form-control" id="selectYear" min="1970" max="2100"
+                                    value="2024">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="close_btn btn btn-danger">
+                                閉じる
+                            </button>
+                            <button type="button" class="btn btn-primary" id="applyChangesBtn">
+                                変更
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -90,18 +135,17 @@
                                     const orderCount = data.orderCount[i][formattedDate];
                                     if (orderCount !== undefined) {
                                         cell.text(orderCount);
-                                    } 
-                                } 
-                                else if(j != daysInMonth + 1) {
+                                    }
+                                } else if (j != daysInMonth + 1) {
                                     // console.log(data.orderByDate);
                                     cell.text(data.orderByDate[formattedDate]);
-                                    cell.css("background-color" , "#ffff00");
-                                    cell.css("color" , "#000");
+                                    cell.css("background-color", "#ffff00");
+                                    cell.css("color", "#000");
                                 }
-                                if(j == daysInMonth + 1 && i !== 7) {
-                                    
+                                if (j == daysInMonth + 1 && i !== 7) {
+
                                 }
-                                
+
 
                                 row.append(cell);
                             }
@@ -116,7 +160,32 @@
                 });
             }
 
+            // Function to update calendar when a new month/year is selected
+            function updateCalendar() {
+                const selectedMonth = parseInt($("#selectMonth").val());
+                const selectedYear = parseInt($("#selectYear").val());
+                currentDate = new Date(selectedYear, selectedMonth, 1);
+                renderCalendar();
+            }
 
+            // Open modal when clicking on the month/year header
+            $("#monthYear").on("click", function() {
+                $("#chooseMonthYearModal").modal("show");
+            });
+
+            // Apply changes button click event
+            $("#applyChangesBtn").on("click", function() {
+                updateCalendar();
+                $("#chooseMonthYearModal").modal("hide");
+            });
+
+            $(".close_btn").on("click", function() {
+                $("#chooseMonthYearModal").modal("hide");
+            });
+
+            $(".cancel_btn").on("click", function() {
+                $("#chooseMonthYearModal").modal("hide");
+            });
 
 
             // Prev

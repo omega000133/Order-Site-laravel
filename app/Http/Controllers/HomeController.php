@@ -88,19 +88,6 @@ class HomeController extends Controller
         }
     }
 
-    // SELECT
-//     c_grade,
-//     order_date,
-//     COUNT(*) AS order_count
-// FROM
-//     orders
-// GROUP BY
-//     c_grade,
-//     order_date
-// ORDER BY
-//     c_grade,
-//     order_date;
-
     public function get(Request $request)
     {
         $orderCounts = Order::select('c_grade', 'order_date', \DB::raw('COUNT(*) as order_count'))
