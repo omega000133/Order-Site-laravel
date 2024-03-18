@@ -101,6 +101,17 @@ class HomeController extends Controller
             ->orderBy('order_date')
             ->get();
 
+        $orderByMonth = Order::select('c_grade', \DB::raw('DATE_FORMAT(order_date, "%Y-%m") as month'), \DB::raw('COUNT(*) as order_count'))
+            ->groupBy('c_grade', 'month')
+            ->orderBy('c_grade')
+            ->orderBy('month')
+            ->get();
+
+        $totalOrdersByMonth = Order::select(\DB::raw('DATE_FORMAT(order_date, "%Y-%m") as month'), \DB::raw('COUNT(*) as total_orders'))
+            ->groupBy('month')
+            ->orderBy('month')
+            ->get();
+
         if (Auth::user()->role == 1) {
             $result1 = [];
             foreach ($orderCounts as $orderCount) {
@@ -125,10 +136,33 @@ class HomeController extends Controller
                 $result2[$order_date] = $counts;
             } 
 
+            $result3 = [];
+            foreach ($orderByMonth as $orderMonth) {
+                $cGrade = $orderMonth->c_grade;
+                $month = $orderMonth->month;
+                $count = $orderMonth->order_count;
+    
+                if (!isset($result3[$cGrade])) {
+                    $result3[$cGrade] = [];
+                }
+    
+                $result3[$cGrade][$month] = $count;
+            }
+
+            $result4 = [];
+            foreach ($totalOrdersByMonth as $totalOrder) {
+                $month = $totalOrder->month;
+                $totalOrders = $totalOrder->total_orders;
+                $result4[$month] = $totalOrders;
+            }
+
+
             $data = [
                 'status' => 200,
                 'orderCount' => $result1,
-                'orderByDate' => $result2
+                'orderByDate' => $result2,
+                'orderByMonth' => $result3,
+                'totalOrdersByMonth' => $result4
             ];
             return response()->json($data, 200);
 

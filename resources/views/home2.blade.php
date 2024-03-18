@@ -130,20 +130,31 @@
                                 const cell = $("<td>");
                                 const formattedDate =
                                     `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + j).slice(-2)}`;
+                                const formattedDate1 = `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}`;
 
                                 if (i !== 7) {
                                     const orderCount = data.orderCount[i][formattedDate];
                                     if (orderCount !== undefined) {
                                         cell.text(orderCount);
                                     }
-                                } else if (j != daysInMonth + 1) {
+                                } 
+                                if (i == 7 && j != daysInMonth + 1) {
                                     // console.log(data.orderByDate);
                                     cell.text(data.orderByDate[formattedDate]);
                                     cell.css("background-color", "#ffff00");
                                     cell.css("color", "#000");
                                 }
-                                if (j == daysInMonth + 1 && i !== 7) {
-
+                                if (i != 7 && j == daysInMonth + 1) {
+                                    // console.log(data.orderByMonth)
+                                    cell.text(data.orderByMonth[i][formattedDate1]);
+                                    cell.css("background-color", "#00ff00")
+                                    cell.css("color", "#000");
+                                }
+                                if(i == 7 && j == daysInMonth + 1) {
+                                    // console.log(data.totalOrdersByMonth);
+                                    cell.text(data.totalOrdersByMonth[formattedDate1]);
+                                    cell.css("background-color", "#ff0000")
+                                    cell.css("color", "#000");
                                 }
                                 row.append(cell);
                             }
