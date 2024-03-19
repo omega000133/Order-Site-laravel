@@ -142,7 +142,7 @@
 
                             <ul class="menu-sub">
                                 <li class="menu-item">
-                                    <a href="" class="menu-link">
+                                    <a href="{{ route('restManage') }}" class="menu-link">
                                         <div data-i18n="休日">休日</div>
                                     </a>
                                 </li>

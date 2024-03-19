@@ -46,6 +46,7 @@ Route::post('/orderManage/update', 'App\Http\Controllers\OrderManageController@u
 Route::get('/suspension', [App\Http\Controllers\SuspensionController::class, 'index'])->name('suspension');
 Route::post('/suspension/store', 'App\Http\Controllers\SuspensionController@store')->name('suspension.store');
 Route::get('/log', [App\Http\Controllers\LogController::class, 'index'])->name('log');
+Route::get('/restManage', [App\Http\Controllers\RestManageController::class, 'index'])->name('restManage');
 
 
 
