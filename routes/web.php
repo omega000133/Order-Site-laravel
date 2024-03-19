@@ -47,6 +47,8 @@ Route::get('/suspension', [App\Http\Controllers\SuspensionController::class, 'in
 Route::post('/suspension/store', 'App\Http\Controllers\SuspensionController@store')->name('suspension.store');
 Route::get('/log', [App\Http\Controllers\LogController::class, 'index'])->name('log');
 Route::get('/restManage', [App\Http\Controllers\RestManageController::class, 'index'])->name('restManage');
+Route::post('/restManage/store', 'App\Http\Controllers\RestManageController@store')->name('restManage.store');
+Route::post('/restManage/delete', 'App\Http\Controllers\RestManageController@delete')->name('restManage.delete');
 
 
 

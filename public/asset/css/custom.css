@@ -224,6 +224,7 @@ label {
     cursor: pointer !important;
 }
 
+
 /* sus page */
 .sus-row {
     margin-left: 30px !important;
@@ -237,5 +238,35 @@ label {
     }
     #sus-date, #sus-reason {
         width: 100% !important;
+    }
+}
+
+/* rest page */
+.setting-part {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+@media screen and (max-width: 795px) {
+    .setting-part {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.display-part {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.display-part > div {
+    width: 22%;
+}
+
+@media screen and (max-width: 795px) {
+    .display-part > div {
+        width: 45%;
     }
 }
