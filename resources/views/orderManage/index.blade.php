@@ -149,23 +149,30 @@
             $("#saveChangeBtn").click(function() {
                change_quantity = $("#setQuantity").val();
                change_reason = $("#changeReason").val();
-               console.log(change_reason)
-                $.post("{{ route('orderManage.update') }}", {
-                    "_token": $('meta[name="csrf_token"]').attr('content'),
-                    "change_id": change_id,
-                    "change_date": change_date,
-                    "change_quantity": change_quantity,
-                    "change_reason": change_reason,
-                }, function(data) {
-                    if (data.status == 200) {
-                        toastr.success(data.message);
-                        window.location.reload(true);
-                    } else if (data.status == 401) {
-                        toastr.error(data.message);
-                    }
-                }, 'json').catch((error) => {
-                    toastr.error("エラーが発生しました。");
-                });
+                if (change_quantity == "" || change_quantity == null) {
+                    toastr.error("数量を入力してください。");
+                    $("#setQuantity").focus();
+                } else if (change_reason == "" || change_reason == null) {
+                    toastr.error("変更理由を入力してください。");
+                    $("#changeReason").focus();
+                } else {
+                    $.post("{{ route('orderManage.update') }}", {
+                        "_token": $('meta[name="csrf_token"]').attr('content'),
+                        "change_id": change_id,
+                        "change_date": change_date,
+                        "change_quantity": change_quantity,
+                        "change_reason": change_reason,
+                    }, function(data) {
+                        if (data.status == 200) {
+                            toastr.success(data.message);
+                            window.location.reload(true);
+                        } else if (data.status == 401) {
+                            toastr.error(data.message);
+                        }
+                    }, 'json').catch((error) => {
+                        toastr.error("エラーが発生しました。");
+                    });
+                }
             })
 
             function renderCalendar() {
