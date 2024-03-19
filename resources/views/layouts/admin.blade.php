@@ -123,12 +123,12 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="" class="menu-link">
+                                    <a href="{{ route('suspension') }}" class="menu-link">
                                         <div data-i18n="一括休配">一括休配</div>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="" class="menu-link">
+                                    <a href="{{ route('log') }}" class="menu-link">
                                         <div data-i18n="操作ログ">操作ログ</div>
                                     </a>
                                 </li>
@@ -305,6 +305,7 @@
 <script src="./asset/js/forms-file-upload.js"></script>
 <script src="./asset/js/pages-auth.js"></script>
 <script src="./asset/js/ui-toasts.js"></script>
+{{-- <script src="./asset/js/form-basic-inputs.js"></script> --}}
 {{-- <script src="./asset/js/tables-datatables-advanced.js"></script> --}}
 
 

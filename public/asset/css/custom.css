@@ -177,6 +177,9 @@
     width: 70%;
     margin-left: auto;
 }
+.grade-filter {
+    margin-left: 0 !important;
+}
 .graduation_year {
     text-align: right !important;
 }
@@ -194,7 +197,7 @@ label {
     -webkit-appearance: textfield;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 950px) {
     .grade-search {
         width: 100% !important;
     }
@@ -202,7 +205,7 @@ label {
         text-align: left !important;
     }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .grade-search {
         flex-direction: column !important;
     }
@@ -219,4 +222,20 @@ label {
 
 #monthYear {
     cursor: pointer !important;
+}
+
+/* sus page */
+.sus-row {
+    margin-left: 30px !important;
+}
+#sus-date, #sus-reason {
+    width: 30% !important;
+}
+@media screen and (max-width: 700px) {
+    .sus-row {
+        margin-left: 0px !important;
+    }
+    #sus-date, #sus-reason {
+        width: 100% !important;
+    }
 }

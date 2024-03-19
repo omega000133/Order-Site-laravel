@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Log;
 use Illuminate\Http\Request;
 
 class OrderManageController extends Controller
@@ -12,9 +14,9 @@ class OrderManageController extends Controller
      */
     public function index(Request $request)
     {
-        $id = $request -> id;
+        $id = $request->id;
         $user_info = User::where('id', $id)->first();
-        $user_email = $user_info -> email;
+        $user_email = $user_info->email;
         $results = Order::where('email', $user_email)->get();
         $order_info = [];
         foreach ($results as $result) {
@@ -60,38 +62,48 @@ class OrderManageController extends Controller
      */
     public function update(Request $request)
     {
-        $change_id = $request -> change_id;
-        $change_date = $request -> change_date;
-        $change_quantity = $request -> change_quantity;
+        $change_id = $request->change_id;
+        $change_date = $request->change_date;
+        $change_quantity = $request->change_quantity;
+        $change_reason = $request->change_reason;
         $change_user = User::where('id', $change_id)->first();
-        $change_email = $change_user -> email;
+        $change_email = $change_user->email;
+        $log_user = $change_user->c_name1;
 
         $change_order = Order::where('email', $change_email)
-                            ->where('order_date', $change_date)
-                            ->first();
-        if($change_quantity == 0) {
+            ->where('order_date', $change_date)
+            ->first();
+        if ($change_quantity == 0) {
             // dd($change_quantity);
             $change_order->delete();
+
+            Log::create([
+                'log_date' => $change_date,
+                'log_user' => $log_user,
+                'log_content' => $change_reason
+            ]);
+
             $data = [
                 'status' => 200,
                 'message' => "更新成功"
             ];
             return response()->json($data, 200);
         }
-        if($change_quantity == 1) {
+        if ($change_quantity == 1) {
             $data = [
                 'status' => 200,
                 'message' => "更新成功"
             ];
             return response()->json($data, 200);
-        } 
-        if(!$change_order){
+        }
+        if (!$change_order) {
             $data = [
                 'status' => 401,
                 'message' => "エラーが発生しました。"
             ];
             return response()->json($data, 401);
         }
+
     }
 
     /**
