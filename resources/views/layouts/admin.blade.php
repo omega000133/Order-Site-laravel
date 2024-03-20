@@ -147,7 +147,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="" class="menu-link">
+                                    <a href="{{ route('menu') }}" class="menu-link">
                                         <div data-i18n="メニュー表">メニュー表</div>
                                     </a>
                                 </li>

@@ -49,6 +49,8 @@ Route::get('/log', [App\Http\Controllers\LogController::class, 'index'])->name('
 Route::get('/restManage', [App\Http\Controllers\RestManageController::class, 'index'])->name('restManage');
 Route::post('/restManage/store', 'App\Http\Controllers\RestManageController@store')->name('restManage.store');
 Route::post('/restManage/delete', 'App\Http\Controllers\RestManageController@delete')->name('restManage.delete');
+Route::get('/menu', [App\Http\Controllers\MenuController::class, 'index'])->name('menu');
+Route::post('/menu/store/menu_upload', 'App\Http\Controllers\MenuController@menu_upload')->name('menu.menu_upload');
 
 
 
