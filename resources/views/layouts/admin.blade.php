@@ -152,7 +152,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="" class="menu-link">
+                                    <a href="{{ route('news') }}" class="menu-link">
                                         <div data-i18n="お知らせ">お知らせ</div>
                                     </a>
                                 </li>

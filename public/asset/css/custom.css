@@ -271,4 +271,16 @@ label {
     }
 }
 
-/* Menu page */
+/* news page */
+#news-title, #news-content, #news-date {
+    width: 70% !important;
+}
+
+#news_table th, #news_table td {
+    text-align: center;
+}
+@media screen and (max-width: 950px) {
+    #news-title, #news-content, #news-date {
+        width: 100% !important;
+    }
+}
