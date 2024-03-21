@@ -272,7 +272,7 @@ label {
 }
 
 /* news page */
-#news-title, #news-content, #news-date {
+#news_title, #news_content, #news_date {
     width: 70% !important;
 }
 
@@ -280,7 +280,7 @@ label {
     text-align: center;
 }
 @media screen and (max-width: 950px) {
-    #news-title, #news-content, #news-date {
+    #news_title, #news_content, #news_date {
         width: 100% !important;
     }
 }

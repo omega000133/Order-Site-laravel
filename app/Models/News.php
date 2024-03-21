@@ -11,5 +11,6 @@ class News extends Model
         'news_date',
         'news_title',
         'news_content',
+        'grades'
     ];
 }

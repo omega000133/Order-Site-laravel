@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\News;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -11,7 +13,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('news.index');
+        $data = News::get();
+        return view('news.index', ['data' => $data]);
     }
 
     /**
@@ -27,7 +30,23 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $news_date = $request -> news_date;
+        $news_title = $request -> news_title;
+        $news_content = $request -> news_content;
+        $grades = $request -> grades;
+        $gradesString = implode(',', $grades);
+        News::create([
+            'news_date' => $news_date,
+            'news_title' => $news_title,
+            'news_content' => $news_content,
+            'grades' => $gradesString
+        ]);
+        $data = [
+            'status' => 200,
+            'message' => "成果的に登録されました。"
+        ];
+        return response()->json($data, 200);
+
     }
 
     /**
@@ -57,8 +76,19 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete(Request $request)
     {
-        //
+        $index = $request->index;
+        $news = News::find($index);
+        if ($news) {
+            $news->delete();
+            $data = [
+                'status' => 200,
+                'message' => '削除成功',
+            ];
+            return response()->json($data, 200);
+        } else {
+            return response()->json(['status' => 401, 'message' => 'エラーが発生しました。'], 401);
+        }
     }
 }

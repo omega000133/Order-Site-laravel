@@ -52,6 +52,8 @@ Route::post('/restManage/delete', 'App\Http\Controllers\RestManageController@del
 Route::get('/menu', [App\Http\Controllers\MenuController::class, 'index'])->name('menu');
 Route::post('/menu/store/menu_upload', 'App\Http\Controllers\MenuController@menu_upload')->name('menu.menu_upload');
 Route::get('/news', [App\Http\Controllers\NewsController::class, 'index'])->name('news');
+Route::post('/news/store', 'App\Http\Controllers\NewsController@store')->name('news.store');
+Route::post('/news/delete', 'App\Http\Controllers\NewsController@delete')->name('news.delete');
 
 
 
