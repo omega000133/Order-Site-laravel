@@ -54,6 +54,7 @@ Route::post('/menu/store/menu_upload', 'App\Http\Controllers\MenuController@menu
 Route::get('/news', [App\Http\Controllers\NewsController::class, 'index'])->name('news');
 Route::post('/news/store', 'App\Http\Controllers\NewsController@store')->name('news.store');
 Route::post('/news/delete', 'App\Http\Controllers\NewsController@delete')->name('news.delete');
+Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
 
 
 
