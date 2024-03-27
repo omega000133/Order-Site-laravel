@@ -59,6 +59,7 @@
     padding: 3rem 4rem;
     cursor: pointer;
     position: relative;
+    text-align: center;
 }
 .home-card table td span {
     font-size: 20px;

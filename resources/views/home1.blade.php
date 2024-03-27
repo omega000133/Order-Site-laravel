@@ -35,10 +35,20 @@
                 </div>
             </div>
         </div>
-        @if(!empty($totalOrders))
-        <input type="hidden" id="totalOrders" value="{{ json_encode($totalOrders) }}">
+        @if (!empty($totalOrders))
+            <input type="hidden" id="totalOrders" value="{{ json_encode($totalOrders) }}">
         @else
             <input type="hidden" id="totalOrders" value="[]">
+        @endif
+        @if (!empty($restDays))
+            <input type="hidden" id="restDays" value="{{ json_encode($restDays) }}">
+        @else
+            <input type="hidden" id="restDays" value="[]">
+        @endif
+        @if (!empty($susDays))
+            <input type="hidden" id="susDays" value="{{ json_encode($susDays) }}">
+        @else
+            <input type="hidden" id="susDays" value="[]">
         @endif
     </div>
 
@@ -76,14 +86,21 @@
             let currentDate = new Date();
             // console.log(currentDate)
             currentDate.setMonth(3);
-            currentDate.setDate(1); 
+            currentDate.setDate(1);
             let totalOrders = [];
             let everyOrders = {};
             let totalOrdersJson = $("#totalOrders").val();
+            let restDaysJson = $("#restDays").val();
+            let susDaysJson = $("#susDays").val();
             if (totalOrdersJson) {
                 totalOrders = JSON.parse(totalOrdersJson);
-            } 
-            // console.log(totalOrders)
+            }
+            if (restDaysJson) {
+                restDays = JSON.parse(restDaysJson);
+            }
+            if (susDaysJson) {
+                susDays = JSON.parse(susDaysJson);
+            }
 
             //Handle Click
             function handleClick() {
@@ -107,16 +124,11 @@
 
                 } else {
                     clickedCell.removeClass("clicked").find("span").remove();
-                    // clickedCell.append("<span>❌</span>");
                     everyOrders[clickedDay] = 0;
-                    // console.log(everyOrders[clickedDay])
                     if (everyOrders[clickedDay] === 0) {
                         const index = totalOrders.indexOf(clickedDay);
-                        // console.log(index)
-                        // cancelOrders.push(clickedDay)
                         if (index !== -1) {
                             totalOrders.splice(index, 1);
-                            // console.log(totalOrders)
                         }
                     }
                 }
@@ -138,19 +150,20 @@
                         everyOrders[clickedDay] = 0;
                     }
                     if (day) {
-                        if (!$(td).hasClass("clicked")) {
-                            $(td).addClass("clicked").find("span").remove();
-                            $(td).append("<span>✔️</span>");
-                            everyOrders[clickedDay] = 1;
-                            totalOrders.push(clickedDay);
-                        } else {
-                            $(td).removeClass("clicked").find("span").remove();
-                            everyOrders[clickedDay] = 0;
-                            // console.log(everyOrders[clickedDay])
-                            if (everyOrders[clickedDay] === 0) {
-                                const index = totalOrders.indexOf(clickedDay);
-                                if (index !== -1) {
-                                    totalOrders.splice(index, 1);
+                        if(!(dayIndex === 0 || dayIndex === 6 || (restDays && restDays.includes(clickedDay)) || (susDays && susDays.includes(clickedDay)))) {
+                            if (!$(td).hasClass("clicked")) {
+                                $(td).addClass("clicked").find("span").remove();
+                                $(td).append("<span>✔️</span>");
+                                everyOrders[clickedDay] = 1;
+                                totalOrders.push(clickedDay);
+                            } else {
+                                $(td).removeClass("clicked").find("span").remove();
+                                everyOrders[clickedDay] = 0;
+                                if (everyOrders[clickedDay] === 0) {
+                                    const index = totalOrders.indexOf(clickedDay);
+                                    if (index !== -1) {
+                                        totalOrders.splice(index, 1);
+                                    }
                                 }
                             }
                         }
@@ -210,32 +223,26 @@
                                 cell.addClass("clicked");
                                 cell.append("<span>✔️</span>");
                             }
-                            cell.on("click", handleClick);
-                            date++;
-                            // if (new Date(curDate) <= new Date().setHours(47, 59, 59, 999)) {
-                            //     cell.off("click");
-                            //     cell.css("cursor", "not-allowed");
-                            // }
-                            // Disable click events for past days up to today
-                            if (new Date(curDate) <= new Date().setHours(23, 59, 59, 999)) {
-                                cell.off("click");
-                                cell.css("cursor", "not-allowed");
-                                cell.css("background-color", "#8f8484");
-                                cell.css("color", "#FFF");
-                            }
 
-                            // Disable click event for the next day after 3 PM
-                            if (currentDate.getHours() >= 15 && new Date(curDate) <= new Date().setHours(47, 59, 59, 999)) {
-                                cell.off("click");
+                            const dayOfWeek = new Date(year, month - 1, day).getDay();
+                            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                                cell.append("<span style='color: red'>休</span>");
                                 cell.css("cursor", "not-allowed");
-                                cell.css("background-color", "#8f8484");
-                                cell.css("color", "#FFF");
+                            } else {
+                                if (restDays && restDays.includes(curDate)) {
+                                    cell.append("<span style='color: red'>休</span>");
+                                    cell.css("cursor", "not-allowed");
+
+                                } else if(susDays && susDays.includes(curDate)) {
+                                    cell.append("<span>❌</span>");
+                                    cell.css("cursor", "not-allowed");
+                                } else {
+                                    // Enable ordering for regular days
+                                    cell.on("click", handleClick);
+                                }
                             }
-                            if (new Date(currentDate.getFullYear(), currentDate.getMonth(), date).toDateString() === new Date().toDateString()) {
-                                cell.addClass("current-day");
-                                cell.css("background-color", "red");
-                                cell.css("color", "#FFF");
-                            }
+                            // cell.on("click", handleClick);
+                            date++;
                         }
                         row.append(cell);
                     }
@@ -258,8 +265,11 @@
                     const formattedMonth = month < 10 ? `0${month}` : month;
                     const formattedDay = day < 10 ? `0${day}` : day;
                     const clickedDay = `${year}-${formattedMonth}-${formattedDay}`;
-                    everyOrders[clickedDay] = 1;
-                    totalOrders.push(clickedDay);
+                    // Check if it's not a weekend or rest day before registering the order
+                    if (!((new Date(year, month - 1, day).getDay() === 0 || new Date(year, month - 1, day).getDay() === 6) || (restDays && restDays.includes(clickedDay)) || susDays && susDays.includes(clickedDay))) {
+                        everyOrders[clickedDay] = 1;
+                        totalOrders.push(clickedDay);
+                    }
                 }
                 renderCalendar();
             }

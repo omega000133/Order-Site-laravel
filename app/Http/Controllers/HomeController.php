@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Rest;
+use App\Models\Suspension;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -28,8 +30,11 @@ class HomeController extends Controller
         if (Auth::check()) {
             if (Auth::user()->role == 2) {
                 $email = Auth::user()->email;
+                $c_grade = Auth::user()->c_grade;
+                $restDays = Rest::where('c_grade', $c_grade)->pluck('rest_day')->toArray();
+                $susDays = Suspension::where('c_grade', $c_grade)->pluck('sus_day')->toArray();
                 $totalOrders = Order::where('email', $email)->pluck('order_date')->toArray();
-                return view('home1', ['totalOrders' => $totalOrders]);
+                return view('home1', ['totalOrders' => $totalOrders, 'restDays' => $restDays, 'susDays' => $susDays]);
             } else if (Auth::user()->role == 1) {
                 return view('home2');
             }
