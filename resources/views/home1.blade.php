@@ -102,6 +102,25 @@
                 susDays = JSON.parse(susDaysJson);
             }
 
+            function getMaxDisableDate() {
+                const currentDate = new Date();
+                const currentHour = currentDate.getHours();
+
+                // Set maxDisableDate based on current time
+                let maxDisableDate;
+
+                if (currentHour < 15) {
+                // If current time is before 15:00 (3:00 PM)
+                maxDisableDate = currentDate.toISOString().split('T')[0];
+                } else {
+                // If current time is after or at 15:00 (3:00 PM)
+                const tomorrow = new Date(currentDate);
+                tomorrow.setDate(currentDate.getDate() + 1);
+                maxDisableDate = tomorrow.toISOString().split('T')[0];
+                }
+                return maxDisableDate;
+            }
+
             //Handle Click
             function handleClick() {
                 const clickedCell = $(this);
@@ -112,6 +131,7 @@
                 const formattedMonth = month < 10 ? `0${month}` : month;
                 const formattedDay = day < 10 ? `0${day}` : day;
                 const clickedDay = `${year}-${formattedMonth}-${formattedDay}`;
+
                 if (!everyOrders[clickedDay]) {
                     everyOrders[clickedDay] = 0;
                 }
@@ -150,7 +170,8 @@
                         everyOrders[clickedDay] = 0;
                     }
                     if (day) {
-                        if(!(dayIndex === 0 || dayIndex === 6 || (restDays && restDays.includes(clickedDay)) || (susDays && susDays.includes(clickedDay)))) {
+                        if (!(dayIndex === 0 || dayIndex === 6 || (restDays && restDays.includes(
+                                clickedDay)) || (susDays && susDays.includes(clickedDay)))) {
                             if (!$(td).hasClass("clicked")) {
                                 $(td).addClass("clicked").find("span").remove();
                                 $(td).append("<span>✔️</span>");
@@ -202,6 +223,9 @@
                     `${japaneseMonths[currentDate.getMonth()]} ${currentDate.getFullYear()}`
                 );
                 let date = 1;
+                
+                const maxDisableDate = getMaxDisableDate();
+                
                 for (let i = 0; i < 6; i++) {
                     const row = $("<tr></tr>");
                     for (let j = 0; j < 7; j++) {
@@ -217,6 +241,7 @@
                             const formattedMonth = month < 10 ? `0${month}` : month;
                             const formattedDay = day < 10 ? `0${day}` : day;
                             const curDate = `${year}-${formattedMonth}-${formattedDay}`;
+                            console.log(curDate)
                             if (totalOrders.find((item) => {
                                     return item == curDate
                                 })) {
@@ -233,11 +258,16 @@
                                     cell.append("<span style='color: red'>休</span>");
                                     cell.css("cursor", "not-allowed");
 
-                                } else if(susDays && susDays.includes(curDate)) {
+                                } else if (susDays && susDays.includes(curDate)) {
                                     cell.append("<span>❌</span>");
+                                    cell.css("cursor", "not-allowed");
+                                } else if (curDate <= maxDisableDate ) {
                                     cell.css("cursor", "not-allowed");
                                 } else {
                                     // Enable ordering for regular days
+                                    const currentDate = new Date();
+                                    const currentDay = currentDate.getDay();
+                                    const currentHour = currentDate.getHours();
                                     cell.on("click", handleClick);
                                 }
                             }
@@ -266,7 +296,9 @@
                     const formattedDay = day < 10 ? `0${day}` : day;
                     const clickedDay = `${year}-${formattedMonth}-${formattedDay}`;
                     // Check if it's not a weekend or rest day before registering the order
-                    if (!((new Date(year, month - 1, day).getDay() === 0 || new Date(year, month - 1, day).getDay() === 6) || (restDays && restDays.includes(clickedDay)) || susDays && susDays.includes(clickedDay))) {
+                    if (!((new Date(year, month - 1, day).getDay() === 0 || new Date(year, month - 1, day)
+                            .getDay() === 6) || (restDays && restDays.includes(clickedDay)) || susDays && susDays
+                            .includes(clickedDay))) {
                         everyOrders[clickedDay] = 1;
                         totalOrders.push(clickedDay);
                     }
