@@ -292,7 +292,7 @@
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <div class="form-floating form-floating-outline col">
+                                <div class="form-floating form-floating-outline">
                                     <input type="text"
                                         class="form-control @error('building') is-invalid @enderror" id="building"
                                         name="building" placeholder="建物・部屋番号" value="{{ old('building') }}" 
@@ -303,28 +303,6 @@
                                         </span>
                                     @enderror
                                     <label for="building">建物・部屋番号</label>
-                                </div>
-                                <div class="form-floating form-floating-outline col">
-                                    <input type="text" class="form-control @error('grade_year') is-invalid @enderror"
-                                        id="grade_year" name="grade_year" placeholder="卒業年代" value="{{ old('grade_year') }}" required autocomplete="grade_year" autofocus />
-                                    @error('grade_year')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                    <label for="grade_year">卒業年代</label>
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" class="form-control @error('card') is-invalid @enderror"
-                                        id="card" name="card" placeholder="クレジットカード" value="{{ old('card') }}" required autocomplete="card" autofocus />
-                                    @error('card')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                    <label for="card">クレジットカード</label>
                                 </div>
                             </div>
                             <div class="mb-2">

@@ -166,7 +166,7 @@
                         "rest_day": allDates,
                     }, function(data) {
                         if (data.status == 200) {
-                            toastr.success(data.message);
+                            toastr.success("追加成功");
                             window.location.reload(true);
                         } else if (data.status == 401) {
                             toastr.error("一致するデータが存在しません。");
