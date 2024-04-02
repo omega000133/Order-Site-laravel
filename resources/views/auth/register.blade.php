@@ -110,7 +110,7 @@
                                 <div class="form-password-toggle">
                                     <div class="input-group input-group-merge">
                                         <div class="form-floating form-floating-outline">
-                                            <input type="password" id="password-confirm"
+                                            <input type="password" id="password_confirmation"
                                                 class="form-control @error('password') is-invalid @enderror"
                                                 name="password_confirmation"
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
@@ -294,14 +294,9 @@
                             <div class="mb-3 row">
                                 <div class="form-floating form-floating-outline">
                                     <input type="text"
-                                        class="form-control @error('building') is-invalid @enderror" id="building"
+                                        class="form-control" id="building"
                                         name="building" placeholder="建物・部屋番号" value="{{ old('building') }}" 
                                         autocomplete="building" autofocus />
-                                    @error('building')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
                                     <label for="building">建物・部屋番号</label>
                                 </div>
                             </div>

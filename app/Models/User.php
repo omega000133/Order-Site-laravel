@@ -28,8 +28,6 @@ class User extends Authenticatable
         'prefecture',
         'address',
         'building',
-        'grade_year',
-        'card',
         'role',
         'permission'
     ];

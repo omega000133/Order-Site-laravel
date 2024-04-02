@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('prefecture');
             $table->string('address');
             $table->string('building');
-            $table->string('card');
             $table->integer('role');
             $table->rememberToken();
             $table->timestamps();

@@ -38,9 +38,9 @@ class HomeController extends Controller
             } else if (Auth::user()->role == 1) {
                 return view('home2');
             }
-        } else {
-            return redirect()->route('login');
-        }
+        } 
+
+        return redirect()->route('login');
     }
 
 

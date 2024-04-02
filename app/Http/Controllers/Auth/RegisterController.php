@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -60,7 +58,7 @@ class RegisterController extends Controller
             'postcode' => ['required', 'string', 'max:255'],
             'prefecture' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'building' => ['string', 'max:255'],
+            'building' => ['nullable','string', 'max:255'],
         ]);
     }
 
