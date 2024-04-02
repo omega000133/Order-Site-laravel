@@ -58,7 +58,10 @@
                     <label for="sus-date">休配日付</label>
                 </div>
                 <div class="form-floating form-floating-outline mb-4">
-                   <input id="sus-reason" class="form-control" type="text" placeholder="休配理由">
+                    <select id="sus-reason" name="sus-reason" class="form-select">
+                        <option value="操作理由">操作理由</option>
+                        <option value="学級閉鎖">学級閉鎖</option>
+                    </select>
                    <label for="sus-reason">休配理由</label>
                 </div>
                 <button class="btn btn-primary btn-lg waves-effect waves-light" type="button" id="apply-btn">実行</button>
@@ -126,17 +129,16 @@
                });
             });
 
+            $("#sus-reason").change(function() {
+                susReason = $("#sus-reason").val();
+            })
+
             
             $("#apply-btn").click(function() {
-               susReason = $("#sus-reason").val();
-               // console.log(susDate)
                 if (susGrade == "" || susGrade == null) {
                     toastr.error("学年を選択してください。")
                 } else if (susDate == "" || susDate == null) {
                     toastr.error("休配日付を指定してください。")
-                } else if (susReason == "" || susReason == null) {
-                    toastr.error("休配理由を入力してください。")
-                    $("#sus-reason").focus();
                 } else {
                    $.post("{{ route('suspension.store') }}", {
                       "_token": $('meta[name="csrf_token"]').attr('content'),
