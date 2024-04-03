@@ -53,11 +53,8 @@ class SuspensionController extends Controller
                     if($row_email) {
                         $user = User::where('email', $row_email)->first();
                         $log_user = $user -> c_name1;
-                        if($susReason == "操作理由") {
-                            $sus_reason = "一括休配「操作理由」".$susDate;
-                        } else if ($susReason == "学級閉鎖") {
-                            $sus_reason = "一括休配 「学級閉鎖」".$susDate;
-                        }
+                        $sus_reason = "一括休配「".$susReason."」".$susDate;
+                        
                         Log::create([
                             'log_date' => $susDate,
                             'log_user' => $log_user,
