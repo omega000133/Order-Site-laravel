@@ -13,11 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
+
 
 //auth
 Route::get('_verifyMailSend', [App\Http\Controllers\VerificationController::class, '_verifyMailSend'])->name('_verifyMailSend');
@@ -26,6 +27,8 @@ Route::get('/email/verify/{hash}', [App\Http\Controllers\VerificationController:
 Route::get('/mailSended', [App\Http\Controllers\VerificationController::class, 'mailSended'])->name('mailSended');
 
 //outside site
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('top');
+Route::resource('/notice', App\Http\Controllers\NoticeController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 Route::get('/usage', [App\Http\Controllers\UsageController::class, 'index'])->name('usage');
