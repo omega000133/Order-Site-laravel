@@ -74,6 +74,7 @@
         $(document).ready(function() {
             const tbody = $("#calendar tbody");
             let currentDate = new Date();
+            // console.log(currentDate)
             currentDate.setMonth(3);
             currentDate.setDate(1); 
             let totalOrders = [];
@@ -82,7 +83,7 @@
             if (totalOrdersJson) {
                 totalOrders = JSON.parse(totalOrdersJson);
             } 
-            console.log(totalOrders)
+            // console.log(totalOrders)
 
             //Handle Click
             function handleClick() {
@@ -197,7 +198,6 @@
                             cell.css("cursor", "default");
                         } else {
                             cell.text(date);
-
                             const year = currentDate.getFullYear();
                             const month = currentDate.getMonth() + 1;
                             const day = date;
@@ -210,19 +210,17 @@
                                 cell.addClass("clicked");
                                 cell.append("<span>✔️</span>");
                             }
-                            if (
-                                new Date(
-                                    currentDate.getFullYear(),
-                                    currentDate.getMonth(),
-                                    date
-                                ).toDateString() === new Date().toDateString()
-                            ) {
+                            if (new Date(currentDate.getFullYear(), currentDate.getMonth(), date).toDateString() === new Date().toDateString()) {
                                 cell.addClass("current-day");
                                 cell.css("background-color", "red");
                                 cell.css("color", "white");
                             }
                             cell.on("click", handleClick);
                             date++;
+                            if (currentDate.getHours() >= 15 && new Date(curDate) <= new Date().setHours(47, 59, 59, 999)) {
+                                cell.off("click");
+                                cell.css("cursor", "not-allowed");
+                            }
                         }
                         row.append(cell);
                     }
