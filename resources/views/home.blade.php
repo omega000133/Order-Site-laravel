@@ -210,16 +210,31 @@
                                 cell.addClass("clicked");
                                 cell.append("<span>✔️</span>");
                             }
-                            if (new Date(currentDate.getFullYear(), currentDate.getMonth(), date).toDateString() === new Date().toDateString()) {
-                                cell.addClass("current-day");
-                                cell.css("background-color", "red");
-                                cell.css("color", "white");
-                            }
                             cell.on("click", handleClick);
                             date++;
+                            // if (new Date(curDate) <= new Date().setHours(47, 59, 59, 999)) {
+                            //     cell.off("click");
+                            //     cell.css("cursor", "not-allowed");
+                            // }
+                            // Disable click events for past days up to today
+                            if (new Date(curDate) <= new Date().setHours(23, 59, 59, 999)) {
+                                cell.off("click");
+                                cell.css("cursor", "not-allowed");
+                                cell.css("background-color", "#8f8484");
+                                cell.css("color", "#FFF");
+                            }
+
+                            // Disable click event for the next day after 3 PM
                             if (currentDate.getHours() >= 15 && new Date(curDate) <= new Date().setHours(47, 59, 59, 999)) {
                                 cell.off("click");
                                 cell.css("cursor", "not-allowed");
+                                cell.css("background-color", "#8f8484");
+                                cell.css("color", "#FFF");
+                            }
+                            if (new Date(currentDate.getFullYear(), currentDate.getMonth(), date).toDateString() === new Date().toDateString()) {
+                                cell.addClass("current-day");
+                                cell.css("background-color", "red");
+                                cell.css("color", "#FFF");
                             }
                         }
                         row.append(cell);
