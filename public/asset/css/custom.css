@@ -29,7 +29,9 @@
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
-
+.cancel-button:hover {
+    color: #FFF !important;
+}
 
 
 /* order manage page */

@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="col mb-4 mt-2">
                             <div class="form-floating form-floating-outline">
-                                <p>15時が過ぎると翌日のご注文について変更することはできません。</p>
+                                <p>15時を過ぎると翌日のご注文について変更することはできません。</p>
                             </div>
                         </div>
                     </div>
