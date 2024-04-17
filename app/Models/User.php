@@ -29,7 +29,8 @@ class User extends Authenticatable
         'address',
         'building',
         'role',
-        'permission'
+        'permission',
+        'payment_num'
     ];
 
     /**

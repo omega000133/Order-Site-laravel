@@ -30,6 +30,8 @@ Route::get('/mailSended', [App\Http\Controllers\VerificationController::class, '
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('top');
 Route::resource('/notice', App\Http\Controllers\NoticeController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/confirm', [App\Http\Controllers\ConfirmController::class, 'index'])->name('confirm');
+Route::post('/confirm/delete', 'App\Http\Controllers\ConfirmController@delete')->name('confirm.delete');
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 Route::get('/usage', [App\Http\Controllers\UsageController::class, 'index'])->name('usage');
 Route::post('/home/order/', 'App\Http\Controllers\HomeController@store')->name('home.store');
