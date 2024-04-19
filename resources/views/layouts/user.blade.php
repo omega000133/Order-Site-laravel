@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="./assets/css/common/swiper.min.css">
     <link rel="stylesheet" href="./assets/css/common/bootstrap.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
+     <!-- Icons -->
+     <link rel="stylesheet" href="./asset/vendor/fonts/materialdesignicons.css" />
+     <link rel="stylesheet" href="./asset/vendor/fonts/fontawesome.css" />
     <title>お弁当注文サイト</title>
   </head>
   <body>

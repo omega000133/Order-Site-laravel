@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\News;
+use App\Models\Menu;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,8 +16,8 @@ class WelcomeController extends Controller
         $news = News::whereDate('news_date', '<=', now()->toDateString())
             ->take(4)
             ->get();
-
-        return view('welcome', ['news' => $news]);
+        $menu = Menu::latest()->first();
+        return view('welcome', ['news' => $news, 'menu' => $menu]);
     }
 
 

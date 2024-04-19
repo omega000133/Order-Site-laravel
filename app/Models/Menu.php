@@ -9,6 +9,8 @@ class Menu extends Model
     use HasFactory;
     protected $fillable = [
         'menu1',
+        'month1',
         'menu2',
+        'month2'
     ];
 }

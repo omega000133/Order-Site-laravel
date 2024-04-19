@@ -285,3 +285,23 @@ label {
         width: 100% !important;
     }
 }
+
+/* menu page */
+.menu-part {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+@media screen and (max-width: 685px) {
+    .menu-part {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+
+#month1, #month2 {
+    width: 150px;
+}

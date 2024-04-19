@@ -570,7 +570,7 @@ main .news .wrap .movetextArea .sec_ttl {
     font-size: 100rem;
   }
 }
-main .news .wrap .news_list {
+main .news .wrap .news_list, main .news .wrap .menu_list{
   margin: 100rem 0;
 }
 @media only screen and (max-width: 768px) {
@@ -582,6 +582,7 @@ main .news .wrap .news_list li {
   width: 800rem;
   margin: auto;
 }
+
 @media only screen and (max-width: 768px) {
   main .news .wrap .news_list li {
     width: 100%;
@@ -597,6 +598,17 @@ main .news .wrap .news_list li a {
   padding: 33rem 0;
   transition: all 0.35s;
 }
+main .news .wrap .menu_list li {
+  width: 400rem;
+  margin: auto;
+}
+
+main .news .wrap .menu_list li a {
+  line-height: 30rem;
+  border-bottom: 0.75px solid #E4E4E4;
+  transition: all 0.35s;
+}
+
 @media only screen and (max-width: 768px) {
   main .news .wrap .news_list li a {
     line-height: 120rem;

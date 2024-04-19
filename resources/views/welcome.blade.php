@@ -26,5 +26,39 @@
                 </div>
             </div>
         </section>
+        <section class="news">
+            <div class="wrap">
+                <div class="movetextArea">
+                    <h5 class="sec_ttl movetext">メニュー</h5>
+                </div>
+                @if($menu)
+                <ul class="news_list">
+                    <li class="wow fadeInUp" data-wow-delay=".5s">
+                        <a href={{$menu->menu1}} target="_blank">
+                            <i class="menu-icon tf-icons mdi mdi-silverware"></i>
+                            <span class="date">{{$menu->month1}}月のメニュー</span>
+                        </a>
+                    </li>
+                    @if(!$menu->month2 == 0)
+                    <li class="wow fadeInUp" data-wow-delay=".5s">
+                        <a href={{$menu->menu2}} target="_blank">
+                            <i class="menu-icon tf-icons mdi mdi-silverware"></i>
+                            <span class="date">{{$menu->month2}}月のメニュー</span>
+                        </a>
+                    </li>
+                    @endif
+                </ul>
+                @else
+                <ul class="news_list">
+                    <li class="wow fadeInUp" data-wow-delay=".5s">
+                        <a href="" target="_blank">
+                            <i class="menu-icon tf-icons mdi mdi-silverware"></i>
+                            <span class="date">メニューはありません。</span>
+                        </a>
+                    </li>
+                </ul>
+                @endif
+            </div>
+        </section>
     </main>
 @endsection
