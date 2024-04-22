@@ -51,7 +51,7 @@
                 @else
                 <ul class="news_list">
                     <li class="wow fadeInUp" data-wow-delay=".5s">
-                        <a href="" target="_blank">
+                        <a href="">
                             <i class="menu-icon tf-icons mdi mdi-silverware"></i>
                             <span class="date">メニューはありません。</span>
                         </a>
