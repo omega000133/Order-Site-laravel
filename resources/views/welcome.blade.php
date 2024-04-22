@@ -29,7 +29,7 @@
         <section class="news">
             <div class="wrap">
                 <div class="movetextArea">
-                    <h5 class="sec_ttl movetext">メニュー</h5>
+                    <h5 class="sec_ttl movetext">メニュー表</h5>
                 </div>
                 @if($menu)
                 <ul class="news_list">

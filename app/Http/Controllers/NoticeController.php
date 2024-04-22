@@ -16,7 +16,7 @@ class NoticeController extends Controller
         $id = $request->id;
         $allData = $request->allData;
         if ($allData) {
-            $data = News::all();
+            $data = News::orderBy('news_date', 'desc')->get();
         } else {
             $data = News::where('id', $id)
                 ->get();

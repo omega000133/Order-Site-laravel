@@ -13,10 +13,13 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $news = News::whereDate('news_date', '<=', now()->toDateString())
-            ->take(4)
-            ->get();
+        $news = News::orderBy('news_date', 'desc') // Order by news_date in descending order
+                    ->whereDate('news_date', '<=', now()->toDateString())
+                    ->take(4)
+                    ->get();
+                    
         $menu = Menu::latest()->first();
+        
         return view('welcome', ['news' => $news, 'menu' => $menu]);
     }
 
