@@ -20,7 +20,7 @@
                             <th>都道府県</th>
                             <th>住所</th>
                             <th>建物・部屋番号</th>
-                            <th>クレジットカード</th>
+                            {{-- <th>クレジットカード</th> --}}
                             <th>操作</th>
                         </tr>
                     </thead>
@@ -38,7 +38,7 @@
                             <td>{{ $my_info->prefecture }}</td>
                             <td>{{ $my_info->address }}</td>
                             <td>{{ $my_info->building }}</td>
-                            <td>{{ $my_info->card }}</td>
+                            {{-- <td>{{ $my_info->card }}</td> --}}
                             <td>
                                 <button type="button" class="btn btn-icon btn-primary waves-effect waves-light" id="edit_btn"
                                     data-val="{{ $my_info->id }}">
@@ -236,13 +236,13 @@
                                     <label for="建物・部屋番号">建物・部屋番号</label>
                                 </div>
                             </div>
-                            <div class="col mb-4 mt-2">
+                            {{-- <div class="col mb-4 mt-2">
                                 <div class="form-floating form-floating-outline">
                                     <input id="card" type="text" name="card" class="form-control"
                                         placeholder="xxx" />
                                     <label for="クレジットカード">クレジットカード</label>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="close_btn btn btn-danger">

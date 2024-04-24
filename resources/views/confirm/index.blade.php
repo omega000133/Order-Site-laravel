@@ -153,17 +153,18 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <form action="https://credit.j-payment.co.jp/link/creditcard" method ="POST">
-                                <input type="HIDDEN" name="aid" value="128470">
-                                <input type="HIDDEN" name="am" value="500">
-                                <input type="HIDDEN" name="tx" value="0">
-                                <input type="HIDDEN" name="sf" value="0">
-                                <input type="HIDDEN" name="jb" value="CAPTURE">
+                            <FORM ACTION="https://credit.j-payment.co.jp/link/creditcard" METHOD ="POST">
+                                <INPUT TYPE="HIDDEN" NAME="aid" VALUE="128470">
+                                <INPUT TYPE="HIDDEN" NAME="jb" VALUE="CHECK">
+                                <INPUT TYPE="HIDDEN" NAME="am" VALUE="0">
+                                <INPUT TYPE="HIDDEN" NAME="tx" VALUE="0">
+                                <INPUT TYPE="HIDDEN" NAME="sf" VALUE="0">
                                 <button type="submit" name="submit"
                                     class="btn btn-primary d-grid w-100">カード情報登録</button>
                             </FORM>
                         </div>
-                        <button id="cancel-button" class="cancel-button" data-val={{ $data->email }} style="border: 1px solid white;">キャンセル</button>
+                        <button id="cancel-button" class="cancel-button" data-val={{ $data->email }}
+                            style="border: 1px solid white;">キャンセル</button>
                     </div>
                 </div>
                 <!-- /Login -->

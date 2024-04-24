@@ -82,6 +82,34 @@
 
     <script>
         $(document).ready(function() {
+            var href = window.location.href;
+
+            function getParameterByName(name, url) {
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            var payment_num = getParameterByName('gid', href);
+            //Register card number in db
+            $.post("{{ route('user.store') }}", {
+                "_token": $('meta[name="csrf_token"]').attr('content'),
+                "payment_num": payment_num
+            }, function(data) {
+                if (data.status == 200) {
+                    toastr.success(data.message);
+                } else if (data.status == 401) {
+                    toastr.error("エラーが発生しました。");
+                }
+            }, 'json').catch((error) => {
+                toastr.error("エラーが発生しました。");
+            });
+
+
+
             const tbody = $("#calendar tbody");
             let currentDate = new Date();
             // console.log(currentDate)
@@ -110,13 +138,13 @@
                 let maxDisableDate;
 
                 if (currentHour < 15) {
-                // If current time is before 15:00 (3:00 PM)
-                maxDisableDate = currentDate.toISOString().split('T')[0];
+                    // If current time is before 15:00 (3:00 PM)
+                    maxDisableDate = currentDate.toISOString().split('T')[0];
                 } else {
-                // If current time is after or at 15:00 (3:00 PM)
-                const tomorrow = new Date(currentDate);
-                tomorrow.setDate(currentDate.getDate() + 1);
-                maxDisableDate = tomorrow.toISOString().split('T')[0];
+                    // If current time is after or at 15:00 (3:00 PM)
+                    const tomorrow = new Date(currentDate);
+                    tomorrow.setDate(currentDate.getDate() + 1);
+                    maxDisableDate = tomorrow.toISOString().split('T')[0];
                 }
                 return maxDisableDate;
             }
@@ -223,9 +251,9 @@
                     `${japaneseMonths[currentDate.getMonth()]} ${currentDate.getFullYear()}`
                 );
                 let date = 1;
-                
+
                 const maxDisableDate = getMaxDisableDate();
-                
+
                 for (let i = 0; i < 6; i++) {
                     const row = $("<tr></tr>");
                     for (let j = 0; j < 7; j++) {
@@ -261,7 +289,7 @@
                                 } else if (susDays && susDays.includes(curDate)) {
                                     cell.append("<span>❌</span>");
                                     cell.css("cursor", "not-allowed");
-                                } else if (curDate <= maxDisableDate ) {
+                                } else if (curDate <= maxDisableDate) {
                                     cell.css("cursor", "not-allowed");
                                 } else {
                                     // Enable ordering for regular days
@@ -297,7 +325,8 @@
                     const clickedDay = `${year}-${formattedMonth}-${formattedDay}`;
                     // Check if it's not a weekend or rest day before registering the order
                     if (!((new Date(year, month - 1, day).getDay() === 0 || new Date(year, month - 1, day)
-                            .getDay() === 6) || (restDays && restDays.includes(clickedDay)) || susDays && susDays
+                                .getDay() === 6) || (restDays && restDays.includes(clickedDay)) || susDays &&
+                            susDays
                             .includes(clickedDay))) {
                         everyOrders[clickedDay] = 1;
                         totalOrders.push(clickedDay);

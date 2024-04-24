@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,7 @@ class UserController extends Controller
 
     public function index()
     {
-        if(Auth::check()) {
+        if (Auth::check()) {
             $email = Auth::user()->email;
             $my_info = User::where('email', $email)->first();
             return view('user.index', ['my_info' => $my_info]);
@@ -39,7 +40,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payment_num = $request->payment_num;
+        if (Auth::check()) {
+            $email = Auth::user()->email;
+            $user = User::where('email', $email)->first();
+            if ($user) {
+                $user->payment_num = $payment_num;
+                $user->save();
+                return response()->json(['message' => '登録成功'], 200);
+            } else {
+                return response()->json(['message' => 'エラーが発生しました。'], 401);
+            }
+        } else {
+            return response()->json(['message' => 'エラーが発生しました。'], 401);
+        }
     }
 
     /**
@@ -93,7 +107,7 @@ class UserController extends Controller
             $data = [
                 'status' => 200,
                 'message' => '更新成功',
-                'user' => $user 
+                'user' => $user
             ];
             return response()->json($data, 200);
         } else {
