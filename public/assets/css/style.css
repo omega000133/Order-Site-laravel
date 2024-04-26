@@ -352,7 +352,7 @@ header {
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 997;
   width: 100%;
   background-color: #FFF;
   box-shadow: 4rem 4rem 3rem rgba(0, 0, 0, 0.5);
@@ -407,6 +407,7 @@ header #hamburger {
   position: relative;
   transition: all 0.5s;
   margin-right: 30rem;
+  z-index: 1000;
 }
 header #hamburger span {
   display: block;
@@ -416,6 +417,7 @@ header #hamburger span {
   position: absolute;
   opacity: 1;
   transition: all 0.5s;
+  z-index: 1000;
 }
 header #hamburger span:nth-child(1) {
   top: 0;
@@ -441,6 +443,8 @@ header #hamburger.active span:nth-child(3) {
 @media only screen and (max-width: 768px) {
   header #hamburger {
     display: block;
+    position: relative;
+    z-index: 1000;
   }
 }
 
@@ -454,7 +458,7 @@ header #hamburger.active span:nth-child(3) {
   top: 0;
   left: -100%;
   transition: all 0.5s;
-  z-index: 998;
+  z-index: 999;
   overflow-y: scroll;
 }
 @media only screen and (max-width: 768px) {
@@ -551,11 +555,11 @@ main .news .wrap {
   width: calc(100% - 200rem);
   margin: auto;
 }
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
   main .news .wrap {
     width: calc(100% - 100rem);
   }
-}
+} */
 main .news .wrap .movetextArea, main .news .wrap .contentArea {
   margin-top: 150rem;
 }
