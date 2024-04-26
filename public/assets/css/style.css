@@ -35,7 +35,7 @@ body {
 }
 @media only screen and (max-width: 768px) {
   body {
-    font-size: 90rem;
+    font-size: 80rem;
   }
 }
 
@@ -543,6 +543,9 @@ main .fv .text h2 {
 main .news {
   text-align: center;
 }
+main .term {
+  text-align: left !important;
+}
 
 main .news .wrap {
   width: calc(100% - 200rem);
@@ -553,17 +556,32 @@ main .news .wrap {
     width: calc(100% - 100rem);
   }
 }
-main .news .wrap .movetextArea {
+main .news .wrap .movetextArea, main .news .wrap .contentArea {
   margin-top: 150rem;
 }
 @media only screen and (max-width: 768px) {
-  main .news .wrap .movetextArea {
+  main .news .wrap .movetextArea, main .news .wrap .contentArea {
     margin-top: 300rem;
   }
 }
+
+main .news .wrap .contentArea .contentTitle {
+  font-size: 25rem;
+  font-weight: bold;
+  margin-top: 30rem;
+}
+
+@media only screen and (max-width: 768px) {
+  main .news .wrap .contentArea .contentTitle {
+    font-size: 80rem;
+    margin-top: 100rem;
+  }
+}
+
 main .news .wrap .movetextArea .sec_ttl {
   font-family: "KozGoPr6N-Bold";
   font-size: 50rem;
+  text-align: center;
 }
 @media only screen and (max-width: 768px) {
   main .news .wrap .movetextArea .sec_ttl {

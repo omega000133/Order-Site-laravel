@@ -41,11 +41,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $payment_num = $request->payment_num;
+        $order_num = $request->order_num;
         if (Auth::check()) {
             $email = Auth::user()->email;
             $user = User::where('email', $email)->first();
             if ($user) {
                 $user->payment_num = $payment_num;
+                $user->order_num = $order_num;
                 $user->save();
                 return response()->json(['message' => '登録成功'], 200);
             } else {

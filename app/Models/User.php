@@ -30,7 +30,8 @@ class User extends Authenticatable
         'building',
         'role',
         'permission',
-        'payment_num'
+        'payment_num',
+        'order_num'
     ];
 
     /**

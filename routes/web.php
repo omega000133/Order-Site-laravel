@@ -38,6 +38,7 @@ Route::post('/home/order/', 'App\Http\Controllers\HomeController@store')->name('
 Route::post('/user/store', 'App\Http\Controllers\UserController@store')->name('user.store');
 Route::post('/user/update', 'App\Http\Controllers\UserController@update')->name('user.update');
 Route::post('/user/delete', 'App\Http\Controllers\UserController@delete')->name('user.delete');
+Route::get('/term', [App\Http\Controllers\TermController::class, 'index'])->name('term1');
 
 
 

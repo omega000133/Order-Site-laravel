@@ -88,26 +88,28 @@
                 name = name.replace(/[\[\]]/g, "\\$&");
                 var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
                     results = regex.exec(url);
-                if (!results) return null;
-                if (!results[2]) return '';
                 return decodeURIComponent(results[2].replace(/\+/g, " "));
             }
+            
+            if (href.includes('gid') && href.includes('god')) {
+                var payment_num = getParameterByName('gid', href);
+                var order_num = getParameterByName('god', href);
 
-            var payment_num = getParameterByName('gid', href);
-            //Register card number in db
-            $.post("{{ route('user.store') }}", {
-                "_token": $('meta[name="csrf_token"]').attr('content'),
-                "payment_num": payment_num
-            }, function(data) {
-                if (data.status == 200) {
-                    toastr.success(data.message);
-                } else if (data.status == 401) {
+                //Register card number and order number in db
+                $.post("{{ route('user.store') }}", {
+                    "_token": $('meta[name="csrf_token"]').attr('content'),
+                    "payment_num": payment_num,
+                    "order_num": order_num
+                }, function(data) {
+                    if (data.status == 200) {
+                        toastr.success(data.message);
+                    } else if (data.status == 401) {
+                        toastr.error("エラーが発生しました。");
+                    }
+                }, 'json').catch((error) => {
                     toastr.error("エラーが発生しました。");
-                }
-            }, 'json').catch((error) => {
-                toastr.error("エラーが発生しました。");
-            });
-
+                });
+            }
 
 
             const tbody = $("#calendar tbody");
