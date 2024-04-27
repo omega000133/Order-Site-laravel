@@ -575,10 +575,17 @@ main .news .wrap .contentArea .contentTitle {
   margin-top: 30rem;
 }
 
+main .news .wrap .contentArea .contentLeft {
+  margin-left: 20px;
+}
+
 @media only screen and (max-width: 768px) {
   main .news .wrap .contentArea .contentTitle {
     font-size: 80rem;
     margin-top: 100rem;
+  }
+  main .news .wrap .contentArea .contentLeft {
+    margin-left: 0;
   }
 }
 

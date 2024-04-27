@@ -113,7 +113,7 @@ class RestManageController extends Controller
     {
         $c_grade = $request -> c_grade;
         $rest_day = $request -> rest_day;
-        if($c_grade) {
+        if($c_grade != null) {
             if($c_grade == 7) {
                 for($i = 0; $i <= 6; $i++) {
                     Rest::where('c_grade', $i)

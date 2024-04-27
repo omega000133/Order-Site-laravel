@@ -39,6 +39,7 @@ Route::post('/user/store', 'App\Http\Controllers\UserController@store')->name('u
 Route::post('/user/update', 'App\Http\Controllers\UserController@update')->name('user.update');
 Route::post('/user/delete', 'App\Http\Controllers\UserController@delete')->name('user.delete');
 Route::get('/term1', [App\Http\Controllers\TermController::class, 'index'])->name('term1');
+Route::get('/privacy1', [App\Http\Controllers\PrivacyController::class, 'index'])->name('privacy1');
 
 
 
@@ -63,6 +64,7 @@ Route::post('/news/delete', 'App\Http\Controllers\NewsController@delete')->name(
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
 Route::get('/bill', [App\Http\Controllers\BillController::class, 'index'])->name('bill');
 Route::get('/term2', [App\Http\Controllers\TermController::class, 'term'])->name('term2');
+Route::get('/privacy2', [App\Http\Controllers\PrivacyController::class, 'privacy'])->name('privacy2');
 
 
 

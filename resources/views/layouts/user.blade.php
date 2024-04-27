@@ -52,7 +52,7 @@
             <a href="{{route('term1')}}">利用規約</a>
           </li>
             <li>
-            <a href="">プライバシーポリシー</a>
+            <a href="{{ route('privacy1') }}">プライバシーポリシー</a>
           </li>
           <li class="login-group">
             <a href="{{route('login')}}" class="book-now1">ログイン</a>
@@ -72,7 +72,7 @@
       <div class="footer-menu">
           <a href="/" class="menu-item">ホーム</a>
           <a href="{{route('term1')}}" class="menu-item">利用規約</a>
-          <a href="" class="menu-item">プライバシーポリシー</a>
+          <a href="{{ route('privacy1') }}" class="menu-item">プライバシーポリシー</a>
       </div>
     </footer>
     <script src="./assets/js/jquery.min.js"></script>

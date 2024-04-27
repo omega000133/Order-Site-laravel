@@ -255,8 +255,8 @@
                                             class="footer-text fw-bolder">成田高等学校付属小学校<br>お弁当注文サイト</a>
                                     </div>
                                     <div class="footer-linkpart">
-                                        <a href="{{route('term2')}}" class="footer-link me-4">利用規約</a>
-                                        <a href="javascript:void(0)" class="footer-link">プライバシーポリシー</a>
+                                        <a href="{{ route('term2') }}" class="footer-link me-4">利用規約</a>
+                                        <a href="{{ route('privacy2')}}" class="footer-link">プライバシーポリシー</a>
                                     </div>
                                 </div>
                             </footer>
