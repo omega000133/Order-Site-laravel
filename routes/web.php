@@ -61,6 +61,7 @@ Route::get('/news', [App\Http\Controllers\NewsController::class, 'index'])->name
 Route::post('/news/store', 'App\Http\Controllers\NewsController@store')->name('news.store');
 Route::post('/news/delete', 'App\Http\Controllers\NewsController@delete')->name('news.delete');
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+Route::get('/bill', [App\Http\Controllers\BillController::class, 'index'])->name('bill');
 Route::get('/term2', [App\Http\Controllers\TermController::class, 'term'])->name('term2');
 
 

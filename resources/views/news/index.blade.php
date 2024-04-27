@@ -72,7 +72,7 @@
                             <th>公開日</th>
                             <th>タイトル</th>
                             <th>内容</th>
-                            <th>操作</th>
+                            <th>削除</th>
                         </tr>
                     </thead>
                     <tbody>

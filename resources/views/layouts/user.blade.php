@@ -49,7 +49,7 @@
           </li>
   
           <li>
-            <a href="{{route('term1')}}">会員規約</a>
+            <a href="{{route('term1')}}">利用規約</a>
           </li>
             <li>
             <a href="">プライバシーポリシー</a>
@@ -71,7 +71,7 @@
       </div>
       <div class="footer-menu">
           <a href="/" class="menu-item">ホーム</a>
-          <a href="{{route('term1')}}" class="menu-item">会員規約</a>
+          <a href="{{route('term1')}}" class="menu-item">利用規約</a>
           <a href="" class="menu-item">プライバシーポリシー</a>
       </div>
     </footer>

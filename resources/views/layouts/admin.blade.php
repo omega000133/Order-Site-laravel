@@ -171,7 +171,7 @@
 
                             <ul class="menu-sub">
                                 <li class="menu-item">
-                                    <a href="" class="menu-link">
+                                    <a href="{{ route('bill') }}" class="menu-link">
                                         <div data-i18n="請求データ">請求データ</div>
                                     </a>
                                 </li>
@@ -255,7 +255,7 @@
                                             class="footer-text fw-bolder">成田高等学校付属小学校<br>お弁当注文サイト</a>
                                     </div>
                                     <div class="footer-linkpart">
-                                        <a href="{{route('term2')}}" class="footer-link me-4">会員規約</a>
+                                        <a href="{{route('term2')}}" class="footer-link me-4">利用規約</a>
                                         <a href="javascript:void(0)" class="footer-link">プライバシーポリシー</a>
                                     </div>
                                 </div>

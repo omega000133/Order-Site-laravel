@@ -230,14 +230,14 @@ label {
 .sus-row {
     margin-left: 30px !important;
 }
-#sus-date, #sus-reason {
+#sus-date, #sus-reason, #billing-date{
     width: 30% !important;
 }
 @media screen and (max-width: 700px) {
     .sus-row {
         margin-left: 0px !important;
     }
-    #sus-date, #sus-reason {
+    #sus-date, #sus-reason, #billing-date {
         width: 100% !important;
     }
 }
