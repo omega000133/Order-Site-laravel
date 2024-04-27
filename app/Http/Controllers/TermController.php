@@ -10,4 +10,7 @@ class TermController extends Controller
     public function index() {
         return view('termOut.index');
     }
+    public function term() {
+        return view('termInside.index');
+    }
 }

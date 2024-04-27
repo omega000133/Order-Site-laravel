@@ -38,7 +38,7 @@ Route::post('/home/order/', 'App\Http\Controllers\HomeController@store')->name('
 Route::post('/user/store', 'App\Http\Controllers\UserController@store')->name('user.store');
 Route::post('/user/update', 'App\Http\Controllers\UserController@update')->name('user.update');
 Route::post('/user/delete', 'App\Http\Controllers\UserController@delete')->name('user.delete');
-Route::get('/term', [App\Http\Controllers\TermController::class, 'index'])->name('term1');
+Route::get('/term1', [App\Http\Controllers\TermController::class, 'index'])->name('term1');
 
 
 
@@ -61,6 +61,7 @@ Route::get('/news', [App\Http\Controllers\NewsController::class, 'index'])->name
 Route::post('/news/store', 'App\Http\Controllers\NewsController@store')->name('news.store');
 Route::post('/news/delete', 'App\Http\Controllers\NewsController@delete')->name('news.delete');
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+Route::get('/term2', [App\Http\Controllers\TermController::class, 'term'])->name('term2');
 
 
 

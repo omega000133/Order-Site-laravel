@@ -305,3 +305,14 @@ label {
 #month1, #month2 {
     width: 150px;
 }
+
+
+.termTitle {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.termContent .contentTitle {
+    font-weight: bold;
+}
