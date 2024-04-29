@@ -20,22 +20,32 @@
             $.post("{{ route('bill.get') }}", {
                 "_token": $('meta[name="csrf_token"]').attr('content'),
                 "billingDate": billingDate,
-            }, function(data) {                if (data) {
-                    var blob = new Blob([data], {
-                        type: 'text/csv'
-                    });
-                    var link = document.createElement('a');
-                    link.href = window.URL.createObjectURL(blob);
-                    link.download = data.csvFileName;
+            }, function(response) {
+                // Create a blob object from the response
+                var blob = new Blob([response], {
+                    type: 'text/csv'
+                });
 
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    toastr.success("成果的にダウンロードしました。");
-                } else {
-                    toastr.error("CSVファイルの生成中にエラーが発生しました");
-                }
-            }, 'json').catch((error) => {
+                // Create a temporary URL for the blob
+                var url = window.URL.createObjectURL(blob);
+
+                // Create a link element
+                var link = document.createElement('a');
+                link.href = url;
+                link.download = '決済_' + billingDate + '.csv';
+
+                // Append the link to the document body
+                document.body.appendChild(link);
+
+                // Trigger a click event on the link to start the download
+                link.click();
+
+                // Cleanup: remove the link and revoke the URL
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url);
+                toastr.success("成果的にダウンロードしました。");
+                window.location.reload('true');
+            }).fail(function() {
                 toastr.error("エラーが発生しました");
             });
         });

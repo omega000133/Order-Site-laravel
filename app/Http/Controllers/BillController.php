@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
@@ -71,7 +71,17 @@ class BillController extends Controller
         fclose($file);
 
         if ($file) {
-            return response()->json(['csvFilePath ' => $csvFilePath, 'csvFileName' => $csvFileName], 200);
+            // Read the file contents
+            $fileContents = file_get_contents($csvFilePath);
+            
+            // Delete the file
+            unlink($csvFilePath);
+
+            // Return the file as a response
+            return Response::make($fileContents, 200, [
+                'Content-Type' => 'text/csv',
+                'Content-Disposition' => 'attachment; filename="' . $csvFileName . '"',
+            ]);
         } else {
             return response()->json(['message' => 'エラーが発生しました。'], 401);
         }
