@@ -59,6 +59,7 @@
                             <th>生徒氏名</th>
                             <th>学年</th>
                             <th>卒業</th>
+                            <th>決済番号</th>
                             <th>操作</th>
                         </tr>
                     </thead>
@@ -69,6 +70,7 @@
                                 <td>{{ $student->c_name1 }}</td>
                                 <td>{{ $student->c_grade }}</td>
                                 <td>{{ $student->grade_year }}</td>
+                                <td>{{ $student->payment_num }}</td>
                                 <td>
                                     <button type="button"
                                         class="btn btn-icon btn-primary waves-effect waves-light edit_btn"
@@ -108,7 +110,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col mb-4 mt-2">
                                 <div class="form-floating form-floating-outline">
                                     <input id="password" type="password" name="password" class="form-control"
@@ -125,7 +127,8 @@
                                     <label for="パスワード確認">パスワード確認</label>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+                        <input type="hidden" id="index">
                         <div class="row">
                             <div class="col mb-4 mt-2">
                                 <div class="form-floating form-floating-outline">
@@ -366,7 +369,6 @@
             $(document).on("click", ".edit_btn", function() {
                 $("#update_modal").show();
                 var index = $(this).attr("data-val");
-                console.log(index)
                 $.post("{{ route('userManage.get') }}", {
                         "_token": $('meta[name="csrf_token"]').attr('content'),
                         "id": index
@@ -375,7 +377,10 @@
                         if (data.status == 200) {
                             // console.log(data.user_info)
                             var user = data.user_info;
+                            $("#index").val(user.id);
                             $("#email").val(user.email);
+                            // $("#password").val(user.password);
+                            // $("#confirm_password").val(user.password);
                             $("#c_name1").val(user.c_name1);
                             $("#c_name2").val(user.c_name2);
                             $("#c_grade").val(user.c_grade);
@@ -402,10 +407,10 @@
 
 
             $(document).on("click", "#update_btn", function() {
-               // console.log(index)
+                var index = $("#index").val();
                 var email = $("#email").val();
-                var password = $("#password").val();
-                var confirm_password = $("#confirm_password").val();
+                // var password = $("#password").val();
+                // var confirm_password = $("#confirm_password").val();
                 var c_name1 = $("#c_name1").val();
                 var c_name2 = $("#c_name2").val();
                 var c_grade = $("#c_grade").val();
@@ -424,7 +429,7 @@
                     permission = 1;
                 }
                //  console.log(permission);
-                var length = password.length;
+                // var length = password.length;
                 var email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
                 if (email == "") {
@@ -434,21 +439,26 @@
                     toastr.error("有効なメール入力");
                     $("#email").val("");
                     $("#email").focus();
-                } else if (password == "") {
-                    toastr.error("パスワード入力");
-                    $("#password").focus();
-                } else if (length < 4) {
-                    toastr.error("パスワードは少なくとも4文字以上でなければなりません。");
-                    $("#password").val("");
-                    $("#password").focus();
-                } else if (confirm_password == "") {
-                    toastr.error("パスワード確認");
-                    $("#confirm_password").focus();
-                } else if (password != confirm_password) {
-                    toastr.error("パスワードをもう一度入力してください。");
-                    $("#confirm_password").val("");
-                    $("#confirm_password").focus();
-                } else if (c_name1 == "") {
+                } 
+                // else if (password == "") {
+                //     toastr.error("パスワード入力");
+                //     $("#password").focus();
+                // } 
+                // else if (length < 4) {
+                //     toastr.error("パスワードは少なくとも4文字以上でなければなりません。");
+                //     $("#password").val("");
+                //     $("#password").focus();
+                // } 
+                // else if (confirm_password == "") {
+                //     toastr.error("パスワード確認");
+                //     $("#confirm_password").focus();
+                // } 
+                // else if (password != confirm_password) {
+                //     toastr.error("パスワードをもう一度入力してください。");
+                //     $("#confirm_password").val("");
+                //     $("#confirm_password").focus();
+                // }
+                 else if (c_name1 == "") {
                     toastr.error("生徒氏名を入力してください。");
                     $("#c_name1").focus();
                 } else if (c_name2 == "") {
@@ -457,10 +467,12 @@
                 } else if (c_grade == "") {
                     toastr.error("学年を選択してください。");
                     $("#c_grade").focus();
-                } else if (grade_year == "") {
-                    toastr.error("卒業年代を入力してください。");
-                    $("#grade_year").focus();
-                } else if (p_name1 == "") {
+                }
+                //  else if (grade_year == "") {
+                //     toastr.error("卒業年代を入力してください。");
+                //     $("#grade_year").focus();
+                // } 
+                else if (p_name1 == "") {
                     toastr.error("保護者氏名を入力してください。");
                     $("#p_name1").focus();
                 } else if (p_name2 == "") {
@@ -483,7 +495,7 @@
                         "_token": $('meta[name="csrf_token"]').attr('content'),
                         "index": index,
                         "email": email,
-                        "password": password,
+                        // "password": password,
                         "c_name1" : c_name1,
                         "c_name2" : c_name2,
                         "c_grade" : c_grade,

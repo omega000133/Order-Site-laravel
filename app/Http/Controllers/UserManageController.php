@@ -69,7 +69,7 @@ class UserManageController extends Controller
     {
         $index = $request->index;
         $email = $request->email;
-        $password = $request->password;
+        // $password = $request->password;
         $c_name1 = $request->c_name1;
         $c_name2 = $request->c_name2;
         $c_grade = $request->c_grade;
@@ -87,7 +87,7 @@ class UserManageController extends Controller
         if ($user) {
             $user->update([
                 'email' => $email,
-                'password' => $password,
+                // 'password' => $password,
                 'c_name1' => $c_name1,
                 'c_name2' => $c_name2,
                 'c_grade' => $c_grade,
