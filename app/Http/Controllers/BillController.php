@@ -70,11 +70,11 @@ class BillController extends Controller
         }
         fclose($file);
 
-        // Return CSV file as download response
-        return response()->download($csvFilePath, $csvFileName, [
-            'Content-Type' => 'text/csv',
-        ])->deleteFileAfterSend(true);
-
+        if ($file) {
+            return response()->json(['csvFilePath ' => $csvFilePath, 'csvFileName' => $csvFileName], 200);
+        } else {
+            return response()->json(['message' => 'エラーが発生しました。'], 401);
+        }
 
     }
 

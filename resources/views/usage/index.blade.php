@@ -13,10 +13,9 @@
           <div class="collapse" id="usage-method">
             <div class="d-grid d-sm-flex p-3 border">
               <img src="../../asset/img/elements/m1.jpg" alt="collapse-image" height="125" class="me-4 mb-sm-0 mb-2">
-              <span>
-               テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-               テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-              </span>
+              <a href="uploads/usage_pdf/order.pdf" target="_blank">
+                こちらの説明をご覧ください。
+              </a>
             </div>
           </div>
       </p>
@@ -28,8 +27,7 @@
             <div class="d-grid d-sm-flex p-3 border">
               <img src="../../asset/img/elements/m4.jpg" alt="collapse-image" height="125" class="me-4 mb-sm-0 mb-2">
               <span>
-               テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-               テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                ご利用日の前日１５時が変更締め切りです。それ以降のご注文、キャンセルはできません。（当日お休みされた場合も代金は頂きます。事前にご了承ください。）
               </span>
             </div>
           </div>
@@ -42,8 +40,7 @@
            <div class="d-grid d-sm-flex p-3 border">
              <img src="../../asset/img/elements/m3.jpg" alt="collapse-image" height="125" class="me-4 mb-sm-0 mb-2">
              <span>
-              テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-              テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+              クレジットカードでのお支払いのみとなります。月末で締めて、翌月に登録されたクレジットカードに請求させて頂きます。
              </span>
            </div>
          </div>
@@ -56,8 +53,7 @@
             <div class="d-grid d-sm-flex p-3 border">
               <img src="../../asset/img/elements/m2.jpg" alt="collapse-image" height="125" class="me-4 mb-sm-0 mb-2">
               <span>
-               テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-               テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                休校など、学校の都合によりお弁当の提供ができない場合は自動的にキャンセルされ、代金は発生しません。
               </span>
             </div>
           </div>

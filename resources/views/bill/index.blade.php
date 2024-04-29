@@ -17,20 +17,27 @@
         });
 
         $("#bill-btn").click(function() {
-            // console.log(billingDate)
             $.post("{{ route('bill.get') }}", {
                 "_token": $('meta[name="csrf_token"]').attr('content'),
                 "billingDate": billingDate,
-            }, function(data) {
-                var resp = data.user;
-                if (data.status == 200) {
+            }, function(data) {                if (data) {
+                    var blob = new Blob([data], {
+                        type: 'text/csv'
+                    });
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = data.csvFileName;
 
-                } else if (data.status == 401) {
-                    toastr.error(data.message);
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    toastr.success("成果的にダウンロードしました。");
+                } else {
+                    toastr.error("CSVファイルの生成中にエラーが発生しました");
                 }
             }, 'json').catch((error) => {
                 toastr.error("エラーが発生しました");
             });
-        })
+        });
     </script>
 @endsection
