@@ -350,25 +350,30 @@
             /* User information update
                START
             */
-            var index;
-            $(".close_btn").click(function() {
+            // $(".close_btn").click(function() {
+            //     $("#update_modal").hide();
+            // });
+
+            // $(".cancel_btn").click(function() {
+            //     $("#update_modal").hide();
+            // });
+
+            $(document).on("click", ".close_btn, .cancel_btn", function() {
                 $("#update_modal").hide();
             });
 
-            $(".cancel_btn").click(function() {
-                $("#update_modal").hide();
-            });
 
-            $(".edit_btn").click(function() {
+            $(document).on("click", ".edit_btn", function() {
                 $("#update_modal").show();
-                index = $(this).attr("data-val");
+                var index = $(this).attr("data-val");
+                console.log(index)
                 $.post("{{ route('userManage.get') }}", {
                         "_token": $('meta[name="csrf_token"]').attr('content'),
                         "id": index
                     },
                     function(data) {
                         if (data.status == 200) {
-                            console.log(data.user_info)
+                            // console.log(data.user_info)
                             var user = data.user_info;
                             $("#email").val(user.email);
                             $("#c_name1").val(user.c_name1);
@@ -396,7 +401,7 @@
             })
 
 
-            $("#update_btn").click(function() {
+            $(document).on("click", "#update_btn", function() {
                // console.log(index)
                 var email = $("#email").val();
                 var password = $("#password").val();
