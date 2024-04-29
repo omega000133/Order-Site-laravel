@@ -70,12 +70,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $max_grade_level = 6;
+        $current_year = date('Y');
+        $graduation_year = $current_year + ($max_grade_level - $data['c_grade']);
         return User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'c_name1' => $data['c_name1'],
             'c_name2' => $data['c_name2'],
             'c_grade' => $data['c_grade'],
+            'grade_year' => $graduation_year,
             'p_name1' => $data['p_name1'],
             'p_name2' => $data['p_name2'],
             'p_phone' => $data['p_phone'],

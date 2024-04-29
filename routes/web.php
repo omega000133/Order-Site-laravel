@@ -63,6 +63,7 @@ Route::post('/news/store', 'App\Http\Controllers\NewsController@store')->name('n
 Route::post('/news/delete', 'App\Http\Controllers\NewsController@delete')->name('news.delete');
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
 Route::get('/bill', [App\Http\Controllers\BillController::class, 'index'])->name('bill');
+Route::post('/bill/get', 'App\Http\Controllers\BillController@get')->name('bill.get');
 Route::get('/term2', [App\Http\Controllers\TermController::class, 'term'])->name('term2');
 Route::get('/privacy2', [App\Http\Controllers\PrivacyController::class, 'privacy'])->name('privacy2');
 

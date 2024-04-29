@@ -21,6 +21,7 @@ class User extends Authenticatable
         'c_name1',
         'c_name2',
         'c_grade',
+        'grade_year',
         'p_name1',
         'p_name2',
         'p_phone',

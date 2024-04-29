@@ -17,8 +17,20 @@
         });
 
         $("#bill-btn").click(function() {
-            
-        })
+            // console.log(billingDate)
+            $.post("{{ route('bill.get') }}", {
+                "_token": $('meta[name="csrf_token"]').attr('content'),
+                "billingDate": billingDate,
+            }, function(data) {
+                var resp = data.user;
+                if (data.status == 200) {
 
+                } else if (data.status == 401) {
+                    toastr.error(data.message);
+                }
+            }, 'json').catch((error) => {
+                toastr.error("エラーが発生しました");
+            });
+        })
     </script>
 @endsection
