@@ -170,7 +170,6 @@ class HomeController extends Controller
                 'totalOrdersByMonth' => $result4
             ];
             return response()->json($data, 200);
-
         } else {
             $data = [
                 'status' => 401,
