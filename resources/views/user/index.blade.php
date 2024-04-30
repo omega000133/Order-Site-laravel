@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-    <div class="card mt-5">
+    {{-- <div class="card mt-5">
         <h4 class="card-header">お支払い/履歴</h4>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
@@ -93,7 +93,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="content-backdrop fade"></div>
 
     <!-- update modal -->
