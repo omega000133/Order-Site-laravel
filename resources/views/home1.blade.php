@@ -90,7 +90,7 @@
                     results = regex.exec(url);
                 return decodeURIComponent(results[2].replace(/\+/g, " "));
             }
-            
+
             if (href.includes('gid') && href.includes('god')) {
                 var payment_num = getParameterByName('gid', href);
                 var order_num = getParameterByName('god', href);
@@ -417,7 +417,10 @@
                         }
                     }, 'json').catch((error) => {
                         toastr.error("申し訳ございませんが、クレジットカード情報の登録がされていないため再度、会員登録をお願いします。");
-                        window.location.href='/';
+
+                        setTimeout(() => {
+                            window.location.href = '/';
+                        }, 2000); 
                     });
                 })
             });
