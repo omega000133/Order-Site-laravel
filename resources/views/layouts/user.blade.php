@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./assets/css/common/slick.min.css">
     <link rel="stylesheet" href="./assets/css/common/swiper.min.css">
     <link rel="stylesheet" href="./assets/css/common/bootstrap.css">
+    <link rel="stylesheet" href="./asset/vendor/libs/toastr/toastr.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
      <!-- Icons -->
      <link rel="stylesheet" href="./asset/vendor/fonts/materialdesignicons.css" />
@@ -78,6 +79,7 @@
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/wow.min.js"></script>
     <script src="./assets/js/slick.min.js"></script>
+    <script src="./asset/vendor/libs/toastr/toastr.js"></script>
     <script src="https://sdk.form.run/js/v2/embed.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>

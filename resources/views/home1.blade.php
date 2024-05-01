@@ -224,6 +224,7 @@
 
             //Render Calendar
             function renderCalendar() {
+                console.log(totalOrders)
                 tbody.html("");
                 const firstDayOfMonth = new Date(
                     currentDate.getFullYear(),
@@ -271,7 +272,6 @@
                             const formattedMonth = month < 10 ? `0${month}` : month;
                             const formattedDay = day < 10 ? `0${day}` : day;
                             const curDate = `${year}-${formattedMonth}-${formattedDay}`;
-                            console.log(curDate)
                             if (totalOrders.find((item) => {
                                     return item == curDate
                                 })) {
@@ -400,11 +400,12 @@
                 $("#check-modal").show();
                 $("#check-btn").click(function() {
                     $("#check-modal").hide();
-                    // console.log(totalOrders)
+                    const myOrders = new Set(totalOrders);
+                    console.log(myOrders)
                     // Send a POST request for each element
                     $.post("{{ route('home.store') }}", {
                         "_token": $('meta[name="csrf_token"]').attr('content'),
-                        "order_date": totalOrders
+                        "order_date": myOrders
                     }, function(data) {
                         var resp = data.info;
                         if (data.status == 200) {
@@ -415,7 +416,8 @@
                             toastr.error(data.message);
                         }
                     }, 'json').catch((error) => {
-                        toastr.error("エラーが発生しました。");
+                        toastr.error("申し訳ございませんが、クレジットカード情報の登録がされていないため再度、会員登録をお願いします。");
+                        window.location.href='/';
                     });
                 })
             });

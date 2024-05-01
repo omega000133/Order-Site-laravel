@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Order;
@@ -38,7 +37,7 @@ class HomeController extends Controller
             } else if (Auth::user()->role == 1) {
                 return view('home2');
             }
-        } 
+        }
 
         return redirect()->route('login');
     }
@@ -48,8 +47,18 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()) {
+            $user = Auth::user();
             $email = Auth::user()->email;
             $c_grade = Auth::user()->c_grade;
+            $payment_num = Auth::user()->payment_num;
+            if (!$payment_num) {
+                $user->delete();
+                $data = [
+                    'status' => 401,
+                    'message' => '申し訳ございませんが、クレジットカード情報の登録がされていないため再度、会員登録をお願いします。',
+                ];
+                return response()->json($data, 401);
+            }
             $order_dates = $request->order_date;
             if ($order_dates == null) {
                 $total_orders = Order::where('email', $email)
@@ -133,24 +142,24 @@ class HomeController extends Controller
 
             $result2 = [];
             foreach ($orderByDates as $orderByDate) {
-                $order_date = $orderByDate -> order_date;
-                $counts = $orderByDate -> orderByDate;
-                if(!isset($result2[$order_date])) {
+                $order_date = $orderByDate->order_date;
+                $counts = $orderByDate->orderByDate;
+                if (!isset($result2[$order_date])) {
                     $result2[$order_date] = [];
                 }
                 $result2[$order_date] = $counts;
-            } 
+            }
 
             $result3 = [];
             foreach ($orderByMonth as $orderMonth) {
                 $cGrade = $orderMonth->c_grade;
                 $month = $orderMonth->month;
                 $count = $orderMonth->order_count;
-    
+
                 if (!isset($result3[$cGrade])) {
                     $result3[$cGrade] = [];
                 }
-    
+
                 $result3[$cGrade][$month] = $count;
             }
 

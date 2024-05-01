@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../../asset/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../../asset/css/demo.css" />
     <link rel="stylesheet" href="../../asset/css/custom.css" />
-    <link rel="stylesheet" href="./asset/vendor/libs/toastr/toastr.css" />
+    <link rel="stylesheet" href="../../asset/vendor/libs/toastr/toastr.css" />
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../../asset/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="../../asset/vendor/libs/typeahead-js/typeahead.css" />
@@ -61,7 +61,7 @@
                 <div class="card p-2">
                     <!-- Logo -->
                     <div class="app-brand justify-content-center mt-5">
-                        <a href="/" class="app-brand-link gap-2">
+                        <a href="#" class="app-brand-link gap-2">
                             <span class="app-brand-logo demo">
                                 <img src="../../assets/img/logo.png" alt="お弁当注文サイ">
                             </span>
@@ -163,8 +163,8 @@
                                     class="btn btn-primary d-grid w-100">カード情報登録</button>
                             </FORM>
                         </div>
-                        <button id="cancel-button" class="cancel-button" data-val={{ $data->email }}
-                            style="border: 1px solid white;">キャンセル</button>
+                        {{-- <button id="cancel-button" class="cancel-button" data-val={{ $data->email }}
+                            style="border: 1px solid white;">キャンセル</button> --}}
                     </div>
                 </div>
                 <!-- /Login -->
@@ -198,7 +198,7 @@
 <script src="../../asset/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
 <script src="../../asset/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
 <script src="../../asset/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
-<script src="./asset/vendor/libs/toastr/toastr.js"></script>
+<script src="../../asset/vendor/libs/toastr/toastr.js"></script>
 
 <!-- Main JS -->
 <script src="../../asset/js/main.js"></script>

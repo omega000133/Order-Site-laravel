@@ -13,16 +13,16 @@
                 </div>
                 <ul class="news_list">
                     @foreach ($news as $item)
-                    <li class="wow fadeInUp" data-wow-delay=".5s">
-                        <a href="{{route('notice.index', ['id' => $item->id])}}">
-                            <span class="date">{{ $item -> news_date }}</span>
-                            <span class="news_ttl">{{ $item -> news_title }}</span>
-                        </a>
-                    </li>
+                        <li class="wow fadeInUp" data-wow-delay=".5s">
+                            <a href="{{ route('notice.index', ['id' => $item->id]) }}">
+                                <span class="date">{{ $item->news_date }}</span>
+                                <span class="news_ttl">{{ $item->news_title }}</span>
+                            </a>
+                        </li>
                     @endforeach
                 </ul>
                 <div class="wow fadeInUp" data-wow-delay=".5s">
-                    <a href="{{route('notice.index', ['allData' => 'allNews'])}}" class="sec_btn">お知らせ一覧</a>
+                    <a href="{{ route('notice.index', ['allData' => 'allNews']) }}" class="sec_btn">お知らせ一覧</a>
                 </div>
             </div>
         </section>
@@ -31,34 +31,41 @@
                 <div class="movetextArea">
                     <h5 class="sec_ttl movetext">メニュー表</h5>
                 </div>
-                @if($menu)
-                <ul class="news_list">
-                    <li class="wow fadeInUp" data-wow-delay=".5s">
-                        <a href={{$menu->menu1}} target="_blank">
-                            <i class="menu-icon tf-icons mdi mdi-silverware"></i>
-                            <span class="date">{{$menu->month1}}月のメニュー</span>
-                        </a>
-                    </li>
-                    @if(!$menu->month2 == 0)
-                    <li class="wow fadeInUp" data-wow-delay=".5s">
-                        <a href={{$menu->menu2}} target="_blank">
-                            <i class="menu-icon tf-icons mdi mdi-silverware"></i>
-                            <span class="date">{{$menu->month2}}月のメニュー</span>
-                        </a>
-                    </li>
-                    @endif
-                </ul>
+                @if ($menu)
+                    <ul class="news_list">
+                        <li class="wow fadeInUp" data-wow-delay=".5s">
+                            <a href={{ $menu->menu1 }} target="_blank">
+                                <i class="menu-icon tf-icons mdi mdi-silverware"></i>
+                                <span class="date">{{ $menu->month1 }}月のメニュー</span>
+                            </a>
+                        </li>
+                        @if (!$menu->month2 == 0)
+                            <li class="wow fadeInUp" data-wow-delay=".5s">
+                                <a href={{ $menu->menu2 }} target="_blank">
+                                    <i class="menu-icon tf-icons mdi mdi-silverware"></i>
+                                    <span class="date">{{ $menu->month2 }}月のメニュー</span>
+                                </a>
+                            </li>
+                        @endif
+                    </ul>
                 @else
-                <ul class="news_list">
-                    <li class="wow fadeInUp" data-wow-delay=".5s">
-                        <a href="">
-                            <i class="menu-icon tf-icons mdi mdi-silverware"></i>
-                            <span class="date">メニューはありません。</span>
-                        </a>
-                    </li>
-                </ul>
+                    <ul class="news_list">
+                        <li class="wow fadeInUp" data-wow-delay=".5s">
+                            <a href="">
+                                <i class="menu-icon tf-icons mdi mdi-silverware"></i>
+                                <span class="date">メニューはありません。</span>
+                            </a>
+                        </li>
+                    </ul>
                 @endif
             </div>
         </section>
     </main>
+    @if (session('error'))
+        <script>
+            $(document).ready(function() {
+                toastr.error('{{ session('error') }}');
+            });
+        </script>
+    @endif
 @endsection
