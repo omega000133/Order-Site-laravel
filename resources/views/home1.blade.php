@@ -115,8 +115,8 @@
             const tbody = $("#calendar tbody");
             let currentDate = new Date();
             // console.log(currentDate)
-            currentDate.setMonth(3);
-            currentDate.setDate(1);
+            // currentDate.setMonth(3);
+            // currentDate.setDate(1);
             let totalOrders = [];
             let everyOrders = {};
             let totalOrdersJson = $("#totalOrders").val();
@@ -401,11 +401,11 @@
                 $("#check-btn").click(function() {
                     $("#check-modal").hide();
                     const myOrders = new Set(totalOrders);
-                    console.log(myOrders)
-                    // Send a POST request for each element
+                    const ordersArray = Array.from(myOrders); 
+                    // console.log(myOrders)
                     $.post("{{ route('home.store') }}", {
                         "_token": $('meta[name="csrf_token"]').attr('content'),
-                        "order_date": myOrders
+                        "order_date": ordersArray
                     }, function(data) {
                         var resp = data.info;
                         if (data.status == 200) {

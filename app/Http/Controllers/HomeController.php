@@ -42,8 +42,8 @@ class HomeController extends Controller
         return redirect()->route('login');
     }
 
-
-
+    
+    
     public function store(Request $request)
     {
         if (Auth::check()) {
@@ -59,6 +59,7 @@ class HomeController extends Controller
                 ];
                 return response()->json($data, 401);
             }
+            
             $order_dates = $request->order_date;
             if ($order_dates == null) {
                 $total_orders = Order::where('email', $email)
@@ -76,7 +77,6 @@ class HomeController extends Controller
                 if ($existing_order->isNotEmpty()) {
                     $existing_order->each->delete();
                 }
-                // dd($order_dates);
                 foreach ($order_dates as $order_date) {
                     $orders[] = Order::create([
                         'email' => $email,
