@@ -93,9 +93,7 @@
                 for (let day = 0; day <= daysInMonth + 1; day++) {
                     const currentDateForDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
                     const dayOfWeekIndex = currentDateForDay.getDay(); // Get the day of the week index (0-6)
-                    const dayOfWeekJapanese = japaneseDayNames[
-                        dayOfWeekIndex
-                    ]; // Get the corresponding Japanese day name
+                    const dayOfWeekJapanese = japaneseDayNames[dayOfWeekIndex]; // Get the corresponding Japanese day name
 
                     let thText;
                     if (day === 0) {
@@ -107,6 +105,12 @@
                     }
 
                     const th = $("<th>").html(`${thText}`);
+                    
+                    // Check if the day is equal to the current day
+                    if (day === currentDate.getDate()) {
+                        th.addClass("current-day"); 
+                    }
+
                     thead.append(th);
                 }
 

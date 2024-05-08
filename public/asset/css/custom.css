@@ -171,6 +171,9 @@
 .monthly-table th {
     padding: 1rem !important;
 }
+.current-day {
+    background-color: #FFCC99!important;
+}
 
 /* userManage page */
 .grade-search {
