@@ -196,12 +196,14 @@
                     const formattedMonth = month < 10 ? `0${month}` : month;
                     const formattedDay = day < 10 ? `0${day}` : day;
                     const clickedDay = `${year}-${formattedMonth}-${formattedDay}`;
+                    const maxDisableDate = getMaxDisableDate();
+
                     if (!everyOrders[clickedDay]) {
                         everyOrders[clickedDay] = 0;
                     }
                     if (day) {
                         if (!(dayIndex === 0 || dayIndex === 6 || (restDays && restDays.includes(
-                                clickedDay)) || (susDays && susDays.includes(clickedDay)))) {
+                                clickedDay)) || (susDays && susDays.includes(clickedDay)) || clickedDay <= maxDisableDate)) {
                             if (!$(td).hasClass("clicked")) {
                                 $(td).addClass("clicked").find("span").remove();
                                 $(td).append("<span>✔️</span>");
@@ -325,11 +327,13 @@
                     const formattedMonth = month < 10 ? `0${month}` : month;
                     const formattedDay = day < 10 ? `0${day}` : day;
                     const clickedDay = `${year}-${formattedMonth}-${formattedDay}`;
+                    const maxDisableDate = getMaxDisableDate();
+
                     // Check if it's not a weekend or rest day before registering the order
                     if (!((new Date(year, month - 1, day).getDay() === 0 || new Date(year, month - 1, day)
                                 .getDay() === 6) || (restDays && restDays.includes(clickedDay)) || susDays &&
                             susDays
-                            .includes(clickedDay))) {
+                            .includes(clickedDay) || clickedDay <= maxDisableDate)) {
                         everyOrders[clickedDay] = 1;
                         totalOrders.push(clickedDay);
                     }
@@ -351,11 +355,13 @@
                     const formattedMonth = month < 10 ? `0${month}` : month;
                     const formattedDay = day < 10 ? `0${day}` : day;
                     const clickedDay = `${year}-${formattedMonth}-${formattedDay}`;
-
-                    everyOrders[clickedDay] = 0;
-                    // cancelOrders.push(clickedDay);
-                    const index = totalOrders.indexOf(clickedDay);
-                    totalOrders.splice(index, 1);
+                    const maxDisableDate = getMaxDisableDate();
+                    if(!(clickedDay <= maxDisableDate)) {
+                        everyOrders[clickedDay] = 0;
+                        // cancelOrders.push(clickedDay);
+                        const index = totalOrders.indexOf(clickedDay);
+                        totalOrders.splice(index, 1);
+                    }
                 }
                 renderCalendar();
             }
