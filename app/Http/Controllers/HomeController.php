@@ -87,7 +87,7 @@ class HomeController extends Controller
 
                 $data = [
                     'status' => 200,
-                    'message' => '注文が成功的に登録されました。',
+                    'message' => 'ご注文が確定しました。ありがとうございます！',
                     'orders' => $orders
                 ];
 

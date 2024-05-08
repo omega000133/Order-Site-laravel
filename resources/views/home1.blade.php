@@ -410,9 +410,11 @@
                         var resp = data.info;
                         if (data.status == 200) {
                             toastr.success(data.message);
-                            window.location.reload(true);
+                            setTimeout(function() {
+                                window.location.reload(true);
+                            }, 2000);
                             totalOrders = data.orders;
-                        } else if (data.status == 401) {
+                        }else if (data.status == 401) {
                             toastr.error(data.message);
                         }
                     }, 'json').catch((error) => {

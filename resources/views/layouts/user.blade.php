@@ -42,25 +42,25 @@
         <span></span>
         <span></span>
       </button>
-    </header>
-    <div id="nav-menu">
-        <ul>
-          <li>
-            <a href="/">ホーム</a>
-          </li>
-  
-          <li>
-            <a href="{{route('term1')}}">利用規約</a>
-          </li>
+      <div id="nav-menu">
+          <ul>
             <li>
-            <a href="{{ route('privacy1') }}">プライバシーポリシー</a>
-          </li>
-          <li class="login-group">
-            <a href="{{route('login')}}" class="book-now1">ログイン</a>
-            <a href="{{route('_verifyMailSend')}}" class="book-now1 book-now11">会員登録</a>
-          </li>
-        </ul>
-    </div>
+              <a href="/">ホーム</a>
+            </li>
+    
+            <li>
+              <a href="{{route('term1')}}">利用規約</a>
+            </li>
+              <li>
+              <a href="{{ route('privacy1') }}">プライバシーポリシー</a>
+            </li>
+            <li class="login-group">
+              <a href="{{route('login')}}" class="book-now1">ログイン</a>
+              <a href="{{route('_verifyMailSend')}}" class="book-now1 book-now11">会員登録</a>
+            </li>
+          </ul>
+      </div>
+    </header>
 
     @yield('content')
     
