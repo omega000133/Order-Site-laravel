@@ -118,6 +118,11 @@
 
                             <ul class="menu-sub">
                                 <li class="menu-item">
+                                    <a href="{{ route('delivery') }}" class="menu-link">
+                                        <div data-i18n="配達伝票">配達伝票</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
                                     <a href="{{ route('userManage') }}" class="menu-link">
                                         <div data-i18n="登録/変更">登録/変更</div>
                                     </a>

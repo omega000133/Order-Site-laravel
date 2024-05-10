@@ -46,6 +46,8 @@ Route::get('/privacy1', [App\Http\Controllers\PrivacyController::class, 'index']
 //inside site
 Route::post('/home/get/', 'App\Http\Controllers\HomeController@get')->name('home.get');
 Route::get('/userManage', [App\Http\Controllers\UserManageController::class, 'index'])->name('userManage');
+Route::get('/delivery', [App\Http\Controllers\DeliveryController::class, 'index'])->name('delivery');
+
 Route::post('/userManage/get', 'App\Http\Controllers\UserManageController@show')->name('userManage.get');
 Route::post('/userManage/update', 'App\Http\Controllers\UserManageController@update')->name('userManage.update');
 Route::get('/orderManage', [App\Http\Controllers\OrderManageController::class, 'index'])->name('orderManage');
