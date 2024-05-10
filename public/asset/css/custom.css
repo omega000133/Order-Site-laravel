@@ -319,3 +319,14 @@ label {
 .termContent .contentTitle {
     font-weight: bold;
 }
+
+/* delivery page */
+#delivery-date {
+    width: 30%;
+}
+
+@media screen and (max-width: 685px) {
+    #delivery-date {
+        width: 100%;
+    }
+}
