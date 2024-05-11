@@ -44,7 +44,9 @@
             function displayGradeTables(usersByGrade) {
                 $("#grade-tables").empty(); // Clear previous tables
                 $.each(usersByGrade, function(grade, users) {
-                    var gradeHtml = '<p class="mt-5" style="display:inline-block; font-size:20px; font-style:bold; border: 1px solid black; padding: 5px 20px;">' + grade + '年生</p>';
+                    var gradeHtml =
+                        '<p class="mt-5" style="display:inline-block; font-size:20px; font-style:bold; border: 1px solid black; padding: 5px 20px;">' +
+                        grade + '年生</p>';
                     var table = '<table class="table table-bordered table-hover table-striped">' +
                         '<thead style="text-align: center">' +
                         '<tr>' +
@@ -66,6 +68,23 @@
                     $("#grade-tables").append(table);
                 });
             }
+
+            $("#print-btn").click(function() {
+                var tablesHtml = $("#grade-tables").html();
+                $.post("{{ route('delivery.pdf') }}", {
+                    "_token": $('meta[name="csrf_token"]').attr('content'),
+                    "tablesHtml": tablesHtml,
+                }, function(response) {
+                    if (response.status == 200) {
+                        toastr.success(response.message);
+                        // Redirect or do something with the PDF file
+                    } else {
+                        toastr.error(response.message);
+                    }
+                }, 'json').catch((error) => {
+                    toastr.error("エラーが発生しました。");
+                });
+            });
         });
     </script>
 @endsection

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use PDF;
 use App\Models\User;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -20,14 +22,14 @@ class DeliveryController extends Controller
      */
     public function get(Request $request)
     {
-        $delivery_date = $request -> delivery_date;
+        $delivery_date = $request->delivery_date;
         $emails = Order::where("order_date", $delivery_date)->pluck('email');
         $usersByGrade = [];
 
         foreach ($emails as $email) {
             // Get users with the current email
             $users = User::where("email", $email)->get();
-    
+
             // Group users by c_grade and retrieve c_name1 and c_name2
             foreach ($users as $user) {
                 $usersByGrade[$user->c_grade][] = [
@@ -46,9 +48,17 @@ class DeliveryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function pdf_print(Request $request)
     {
-        //
+        $tablesHtml = $request->input('tablesHtml');
+
+        $pdf = PDF::loadHTML($tablesHtml);
+
+        // Set paper size and orientation
+        $pdf->setPaper('A4', 'portrait');
+
+        // Download the PDF file
+        return $pdf->download('delivery_slips.pdf');
     }
 
     /**
