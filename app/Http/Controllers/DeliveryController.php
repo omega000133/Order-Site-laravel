@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use PDF;
+use Dompdf\Dompdf;
 use App\Models\User;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -48,18 +48,32 @@ class DeliveryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function pdf_print(Request $request)
-    {
-        $tablesHtml = $request->input('tablesHtml');
-
-        $pdf = PDF::loadHTML($tablesHtml);
-
-        // Set paper size and orientation
-        $pdf->setPaper('A4', 'portrait');
-
-        // Download the PDF file
-        return $pdf->download('delivery_slips.pdf');
-    }
+   
+     public function pdf_print(Request $request)
+     {
+         $tablesHtml = $request->input('tablesHtml');
+        dd($tablesHtml);
+         // Instantiate Dompdf
+         $dompdf = new Dompdf();
+     
+         // Load HTML content
+         $dompdf->loadHtml($tablesHtml);
+     
+         // Set paper size and orientation
+         $dompdf->setPaper('A4', 'portrait');
+     
+         // Render the HTML as PDF
+         $dompdf->render();
+     
+         // Get the generated PDF content
+         $pdfContent = $dompdf->output();
+         // Return the PDF content as the response
+         return response()->json([
+             'status' => 200,
+             'message' => 'PDF generated successfully',
+             'pdfContent' => base64_encode($pdfContent), // Encode the PDF content to be sent as JSON
+         ]);
+     }
 
     /**
      * Display the specified resource.

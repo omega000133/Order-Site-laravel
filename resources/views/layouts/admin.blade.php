@@ -306,6 +306,7 @@
 <script src="./asset/js/main.js"></script>
 
 <!-- Page JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js'></script>
 <script src="./asset/js/dashboards-crm.js"></script>
 <script src="./asset/js/forms-file-upload.js"></script>
 <script src="./asset/js/pages-auth.js"></script>

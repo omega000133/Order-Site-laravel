@@ -172,7 +172,7 @@
     padding: 1rem !important;
 }
 .current-day {
-    background-color: #FFCC99!important;
+    background-color: #ffcc99 !important;
 }
 
 /* userManage page */
@@ -223,24 +223,26 @@ label {
     }
 }
 
-
 #monthYear {
     cursor: pointer !important;
 }
-
 
 /* sus page */
 .sus-row {
     margin-left: 30px !important;
 }
-#sus-date, #sus-reason, #billing-date{
+#sus-date,
+#sus-reason,
+#billing-date {
     width: 30% !important;
 }
 @media screen and (max-width: 700px) {
     .sus-row {
         margin-left: 0px !important;
     }
-    #sus-date, #sus-reason, #billing-date {
+    #sus-date,
+    #sus-reason,
+    #billing-date {
         width: 100% !important;
     }
 }
@@ -276,15 +278,20 @@ label {
 }
 
 /* news page */
-#news_title, #news_content, #news_date {
+#news_title,
+#news_content,
+#news_date {
     width: 70% !important;
 }
 
-#news_table th, #news_table td {
+#news_table th,
+#news_table td {
     text-align: center;
 }
 @media screen and (max-width: 950px) {
-    #news_title, #news_content, #news_date {
+    #news_title,
+    #news_content,
+    #news_date {
         width: 100% !important;
     }
 }
@@ -304,11 +311,10 @@ label {
     }
 }
 
-
-#month1, #month2 {
+#month1,
+#month2 {
     width: 150px;
 }
-
 
 .termTitle {
     font-size: 30px;
@@ -330,3 +336,18 @@ label {
         width: 100%;
     }
 }
+
+
+#delivery_grade {
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 20px;
+    font-style: bold;
+    border: 1px solid black;
+    padding: 5px 20px;
+}
+
+#grade-tables table th tr td {
+    text-align: center;
+}
+

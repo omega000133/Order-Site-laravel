@@ -12,7 +12,6 @@
                 <button class="btn btn-success waves-effect waves-light" type="button" id="print-btn">印刷</button>
             </div>
             <div id="grade-tables" class="mt-5">
-                <!-- Grade Tables will be inserted here -->
             </div>
         </div>
     </div>
@@ -45,10 +44,10 @@
                 $("#grade-tables").empty(); // Clear previous tables
                 $.each(usersByGrade, function(grade, users) {
                     var gradeHtml =
-                        '<p class="mt-5" style="display:inline-block; font-size:20px; font-style:bold; border: 1px solid black; padding: 5px 20px;">' +
+                        '<p id="delivery_grade">' +
                         grade + '年生</p>';
                     var table = '<table class="table table-bordered table-hover table-striped">' +
-                        '<thead style="text-align: center">' +
+                        '<thead>' +
                         '<tr>' +
                         '<th>コード</th>' +
                         '<th>児童氏名</th>' +
@@ -57,7 +56,7 @@
                         '</thead>' +
                         '<tbody>';
                     $.each(users, function(index, user) {
-                        table += '<tr style="text-align: center">' +
+                        table += '<tr>' +
                             '<td>' + (index + 1) + '</td>' +
                             '<td>' + user.c_name1 + '</td>' +
                             '<td>' + user.c_name2 + '</td>' +
@@ -69,20 +68,26 @@
                 });
             }
 
+
             $("#print-btn").click(function() {
-                var tablesHtml = $("#grade-tables").html();
-                $.post("{{ route('delivery.pdf') }}", {
-                    "_token": $('meta[name="csrf_token"]').attr('content'),
-                    "tablesHtml": tablesHtml,
-                }, function(response) {
-                    if (response.status == 200) {
-                        toastr.success(response.message);
-                        // Redirect or do something with the PDF file
-                    } else {
-                        toastr.error(response.message);
+                var specialElementHandlers = {
+                    '#grade-tables': function(element, renderer) {
+                        return true;
                     }
-                }, 'json').catch((error) => {
-                    toastr.error("エラーが発生しました。");
+                };
+                var pdf = new jsPDF('p', 'pt', 'letter');
+                var source = $('#grade-tables')[0];
+                var margins = {
+                    top: 80,
+                    bottom: 80,
+                    left: 5,
+                    width: 600
+                };
+
+                html2canvas(source).then(function(canvas) {
+                    var imgData = canvas.toDataURL('image/jpeg');
+                    pdf.addImage(imgData, 'JPEG', margins.left, margins.top, margins.width, 0);
+                    pdf.save('配達伝票.pdf'); // File name in Japanese
                 });
             });
         });
