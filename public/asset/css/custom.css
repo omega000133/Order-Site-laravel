@@ -342,7 +342,6 @@ label {
     margin-top: 20px;
     display: inline-block;
     font-size: 20px;
-    font-style: bold;
     border: 1px solid black;
     padding: 5px 20px;
 }
@@ -351,3 +350,30 @@ label {
     text-align: center;
 }
 
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #grade-tables, #grade-tables * {
+        visibility: visible;
+    }
+    #grade-tables {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .grade-table {
+        page-break-after: always;
+    }
+    .grade-table:first-child {
+        page-break-after: auto;
+    }
+    @page {
+        margin: 0;
+    }
+    body {
+        margin: 1.6cm;
+    }
+}

@@ -46,7 +46,7 @@
                     var gradeHtml =
                         '<p id="delivery_grade">' +
                         grade + '年生</p>';
-                    var table = '<table class="table table-bordered table-hover table-striped">' +
+                    var table = '<table class="table table-bordered table-hover table-striped grade-table">' +
                         '<thead>' +
                         '<tr>' +
                         '<th>コード</th>' +
@@ -70,25 +70,7 @@
 
 
             $("#print-btn").click(function() {
-                var specialElementHandlers = {
-                    '#grade-tables': function(element, renderer) {
-                        return true;
-                    }
-                };
-                var pdf = new jsPDF('p', 'pt', 'letter');
-                var source = $('#grade-tables')[0];
-                var margins = {
-                    top: 80,
-                    bottom: 80,
-                    left: 5,
-                    width: 600
-                };
-
-                html2canvas(source).then(function(canvas) {
-                    var imgData = canvas.toDataURL('image/jpeg');
-                    pdf.addImage(imgData, 'JPEG', margins.left, margins.top, margins.width, 0);
-                    pdf.save('配達伝票.pdf'); // File name in Japanese
-                });
+                window.print();
             });
         });
     </script>
