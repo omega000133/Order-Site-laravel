@@ -43,13 +43,14 @@
             function displayGradeTables(usersByGrade) {
                 $("#grade-tables").empty(); // Clear previous tables
                 $.each(usersByGrade, function(grade, users) {
+                    var gradeDate = '<p id="grade_date">'+delivery_date+'</p>';
                     var gradeHtml =
                         '<p id="delivery_grade">' +
                         grade + '年生</p>';
                     var table = '<table class="table table-bordered table-hover table-striped grade-table">' +
                         '<thead>' +
                         '<tr>' +
-                        '<th>コード</th>' +
+                        '<th></th>' +
                         '<th>児童氏名</th>' +
                         '<th>ふりがな</th>' +
                         '</tr>' +
@@ -63,7 +64,8 @@
                             '</tr>';
                     });
                     table += '</tbody></table>';
-                    $("#grade-tables").append(gradeHtml); // Prepend gradeHtml before each table
+                    $("#grade-tables").append(gradeDate);
+                    $("#grade-tables").append(gradeHtml);
                     $("#grade-tables").append(table);
                 });
             }
