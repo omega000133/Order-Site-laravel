@@ -156,6 +156,7 @@
                                     <select id="c_grade" name="c_grade"
                                         class="form-select @error('c_grade') is-invalid @enderror" value="{{ old('c_grade') }}" required autofocus>
                                         <option>学年を選択してください。</option>
+                                        <option value="10">先生</option>
                                         <option value="0">新入生</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>

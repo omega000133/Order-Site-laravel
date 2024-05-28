@@ -72,7 +72,12 @@ class RegisterController extends Controller
     {
         $max_grade_level = 6;
         $current_year = date('Y');
-        $graduation_year = $current_year + ($max_grade_level - $data['c_grade']);
+        // dd($data['c_grade']);
+        if($data['c_grade'] == '10') {
+            $graduation_year = null;
+        } else {
+            $graduation_year = $current_year + ($max_grade_level - $data['c_grade']);
+        }
         return User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
