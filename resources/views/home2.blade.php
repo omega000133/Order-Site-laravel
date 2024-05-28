@@ -124,8 +124,8 @@
                             0
                         ).getDate();
 
-                        const grades = ['1年', '2年', '3年', '4年', '5年', '6年', '合計'];
-                        for (let i = 1; i < 8; i++) {
+                        const grades = ['1年', '2年', '3年', '4年', '5年', '6年','先生', '合計'];
+                        for (let i = 1; i < 9; i++) {
                             const tbody = $("#calendar tbody");
                             const row = $("<tr>");
                             const gradeCell = $("<td>").text(grades[i - 1]);
@@ -137,24 +137,27 @@
                                 const formattedDate1 =
                                     `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}`;
 
-                                if (i !== 7 && data.orderCount[i] && data.orderCount[i][formattedDate] !==
+                                console.log(data.orderCount);
+
+
+                                if (i !== 8 && data.orderCount[i] && data.orderCount[i][formattedDate] !==
                                     undefined) {
                                     cell.text(data.orderCount[i][formattedDate]);
                                 }
-                                if (i == 7 && j != daysInMonth + 1 && data.orderByDate && data.orderByDate[
+                                if (i == 8 && j != daysInMonth + 1 && data.orderByDate && data.orderByDate[
                                         formattedDate] !== undefined) {
                                     cell.text(data.orderByDate[formattedDate]);
                                     cell.css("background-color", "#ffff00");
                                     cell.css("color", "#000");
                                 }
-                                if (i != 7 && j == daysInMonth + 1 && data.orderByMonth && data
+                                if (i != 8 && j == daysInMonth + 1 && data.orderByMonth && data
                                     .orderByMonth[i] && data.orderByMonth[i][formattedDate1] !== undefined
                                     ) {
                                     cell.text(data.orderByMonth[i][formattedDate1]);
                                     cell.css("background-color", "#00ff00")
                                     cell.css("color", "#000");
                                 }
-                                if (i == 7 && j == daysInMonth + 1 && data.totalOrdersByMonth && data
+                                if (i == 8 && j == daysInMonth + 1 && data.totalOrdersByMonth && data
                                     .totalOrdersByMonth[formattedDate1] !== undefined) {
                                     cell.text(data.totalOrdersByMonth[formattedDate1]);
                                     cell.css("background-color", "#ff0000")

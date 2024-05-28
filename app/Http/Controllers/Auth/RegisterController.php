@@ -73,7 +73,7 @@ class RegisterController extends Controller
         $max_grade_level = 6;
         $current_year = date('Y');
         // dd($data['c_grade']);
-        if($data['c_grade'] == '10') {
+        if($data['c_grade'] == '7') {
             $graduation_year = null;
         } else {
             $graduation_year = $current_year + ($max_grade_level - $data['c_grade']);
