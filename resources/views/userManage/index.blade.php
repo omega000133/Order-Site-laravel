@@ -11,6 +11,12 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
+                        <input class="form-check-input grade" type="checkbox" value="先生" id="teacher">
+                        <label class="form-check-label" for="teacher">先生</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
                         <input class="form-check-input grade" type="checkbox" value="1" id="grade1">
                         <label class="form-check-label" for="grade1">1年生</label>
                     </div>
@@ -68,7 +74,13 @@
                             <tr>
                                 <td>{{ $student->id }}</td>
                                 <td>{{ $student->c_name1 }}</td>
-                                <td>{{ $student->c_grade }}</td>
+                                <td>
+                                    @if($student->c_grade == 7) 
+                                        先生
+                                    @else
+                                    {{ $student->c_grade }}
+                                    @endif
+                                </td>
                                 <td>{{ $student->grade_year }}</td>
                                 <td>{{ $student->payment_num }}</td>
                                 <td>
@@ -338,7 +350,7 @@
                 table.column(3).search(graduationYear).draw();
             }
 
-            function getSelectedGrades() {
+            function getSelectedGrades() {  
                 var grades = [];
                 $('.grade:checked').each(function() {
                     grades.push($(this).val());
@@ -522,13 +534,6 @@
                     });
                 }
             });
-
-            /* User information update
-               END
-            */
-
-
-
         });
     </script>
 @endsection
