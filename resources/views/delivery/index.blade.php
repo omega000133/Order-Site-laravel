@@ -44,9 +44,14 @@
                 $("#grade-tables").empty(); // Clear previous tables
                 $.each(usersByGrade, function(grade, users) {
                     var gradeDate = '<p id="grade_date">'+delivery_date+'</p>';
-                    var gradeHtml =
-                        '<p id="delivery_grade">' +
-                        grade + '年生</p>';
+                    var gradeHtml;
+                    if(grade == 7) {
+                        gradeHtml = '<p id="delivery_grade">' + '先生</p>'; 
+                    } else {
+                        gradeHtml =
+                            '<p id="delivery_grade">' +
+                            grade + '年生</p>';
+                    }
                     var table = '<table class="table table-bordered table-hover table-striped grade-table">' +
                         '<thead>' +
                         '<tr>' +
