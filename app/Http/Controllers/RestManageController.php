@@ -18,9 +18,10 @@ class RestManageController extends Controller
         $rest4 = Rest::where('c_grade', "4")->get();
         $rest5 = Rest::where('c_grade', "5")->get();
         $rest6 = Rest::where('c_grade', "6")->get();
-        $rest7 = Rest::select('rest_day')
+        $rest7 = Rest::where('c_grade', "7")->get();
+        $rest8 = Rest::select('rest_day')
                 ->groupBy('rest_day')
-                ->havingRaw('COUNT(DISTINCT c_grade) = 7')
+                ->havingRaw('COUNT(DISTINCT c_grade) = 8')
                 ->get();
                         
         return view("restManage.index",[
@@ -32,6 +33,7 @@ class RestManageController extends Controller
             'rest5' => $rest5,
             'rest6' => $rest6,
             'rest7' => $rest7,
+            'rest8' => $rest8,
         ]);
     }
 
@@ -50,9 +52,9 @@ class RestManageController extends Controller
     {
         $c_grade = $request -> c_grade;
         $rest_days = $request -> rest_day;
-        if($c_grade) {
-            if($c_grade == 7) {
-                for($i = 0; $i <= 6; $i++) {
+        if(!is_null($c_grade)) {
+            if($c_grade == 8) {
+                for($i = 0; $i <= 7; $i++) {
                     foreach($rest_days as $rest_day) {
                         Rest::create([
                             'c_grade' => $i,
@@ -62,6 +64,7 @@ class RestManageController extends Controller
                 }
             } else {
                 foreach($rest_days as $rest_day) {
+                    // dd($rest_day);
                     Rest::create([
                         'c_grade' => $c_grade,
                         'rest_day' => $rest_day
@@ -114,8 +117,8 @@ class RestManageController extends Controller
         $c_grade = $request -> c_grade;
         $rest_day = $request -> rest_day;
         if($c_grade != null) {
-            if($c_grade == 7) {
-                for($i = 0; $i <= 6; $i++) {
+            if($c_grade == 8) {
+                for($i = 0; $i <= 7; $i++) {
                     Rest::where('c_grade', $i)
                         ->where('rest_day', $rest_day)
                         ->delete();

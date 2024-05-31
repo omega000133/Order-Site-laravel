@@ -6,7 +6,8 @@
             <div class="setting-part mb-4">
                 <div class="form-floating form-floating-outline mb-3">
                     <select id="c_grade" name="c_grade" class="form-select">
-                        <option value="7">全校</option>
+                        <option value="8">全校</option>
+                        <option value="7">先生</option>
                         <option value="0">新入生</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -30,6 +31,16 @@
             <div class="display-part">
                 <div class="form-floating form-floating-outline mb-3">
                     <p>全校</p>
+                    <select class="form-select rest-date">
+                        @foreach ($rest8 as $item)
+                            <option value="{{ $item->rest_day }}">{{ $item->rest_day }}</option>
+                        @endforeach
+                    </select>
+                    <button type="button" class="mt-3 delete-btn btn btn-danger waves-effect waves-light"
+                        data-val="8">削除</button>
+                </div>
+                <div class="form-floating form-floating-outline mb-3">
+                    <p>先生</p>
                     <select class="form-select rest-date">
                         @foreach ($rest7 as $item)
                             <option value="{{ $item->rest_day }}">{{ $item->rest_day }}</option>
@@ -160,6 +171,7 @@
                 } else if (startDate == "" || startDate == null) {
                     toastr.error("日付を指定してください。")
                 } else {
+                    console.log(allDates);
                     $.post("{{ route('restManage.store') }}", {
                         "_token": $('meta[name="csrf_token"]').attr('content'),
                         "c_grade": selectedGrade,

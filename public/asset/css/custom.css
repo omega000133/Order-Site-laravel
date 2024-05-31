@@ -268,12 +268,12 @@ label {
     gap: 10px;
 }
 .display-part > div {
-    width: 22%;
+    width: 30%;
 }
 
 @media screen and (max-width: 795px) {
     .display-part > div {
-        width: 45%;
+        width: 100%;
     }
 }
 
