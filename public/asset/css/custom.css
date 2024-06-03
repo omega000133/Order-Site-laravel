@@ -194,6 +194,7 @@ label {
     padding-right: 5px !important;
 }
 #graduation_year {
+    width: 212px !important;
     height: 35px !important;
 }
 [type="search"] {
