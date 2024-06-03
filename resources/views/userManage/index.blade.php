@@ -162,6 +162,7 @@
                                 <div class="form-floating form-floating-outline">
                                     <select id="c_grade" name="c_grade" class="form-select">
                                         <option>学年を選択してください。</option>
+                                        <option value="7">先生</option>
                                         <option value="0">新入生</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
