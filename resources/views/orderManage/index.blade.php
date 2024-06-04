@@ -20,7 +20,13 @@
                         <tr>
                             <td id="user_id">{{ $user_info->id }}</td>
                             <td>{{ $user_info->c_name1 }}</td>
-                            <td>{{ $user_info->c_grade }}</td>
+                            <td>
+                                @if ($user_info->c_grade == 7) 
+                                    先生    
+                                @else
+                                {{ $user_info->c_grade }}
+                                @endif
+                            </td>
                             <td>{{ $user_info->grade_year }}</td>
                             <td>{{ $user_info->p_name1 }}</td>
                             <td>{{ $user_info->p_phone }}</td>
