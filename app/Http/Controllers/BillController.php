@@ -27,7 +27,7 @@ class BillController extends Controller
         // Calculate the start and end date of the billing period
         $startDate = date('Y-m-d', strtotime("$billingDate -1 month +20 days"));
         $endDate = date('Y-m-d', strtotime("$billingDate +19 days"));
-        // Retrieve orders for the given period
+        // dd($startDate, $endDate);
         $orders = Order::whereBetween('order_date', [$startDate, $endDate])->get();
         $csvData = [];
         
