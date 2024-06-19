@@ -13,12 +13,12 @@
                         <option value="4">4月</option>
                         <option value="5">5月</option>
                         <option value="6">6月</option>
-                        <option value="6">7月</option>
-                        <option value="6">8月</option>
-                        <option value="6">9月</option>
-                        <option value="6">10月</option>
-                        <option value="6">11月</option>
-                        <option value="6">12月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -36,12 +36,12 @@
                         <option value="4">4月</option>
                         <option value="5">5月</option>
                         <option value="6">6月</option>
-                        <option value="6">7月</option>
-                        <option value="6">8月</option>
-                        <option value="6">9月</option>
-                        <option value="6">10月</option>
-                        <option value="6">11月</option>
-                        <option value="6">12月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
                     </select>
                 </div>
                 <div class="mb-3">

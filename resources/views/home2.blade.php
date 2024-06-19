@@ -137,7 +137,7 @@
                                 const formattedDate1 =
                                     `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}`;
 
-                                console.log(data.orderCount);
+                                // console.log(data.orderCount);
 
 
                                 if (i !== 8 && data.orderCount[i] && data.orderCount[i][formattedDate] !==

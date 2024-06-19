@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\User;
+use Carbon\Carbon;
 
 class BillController extends Controller
 {
@@ -23,10 +24,9 @@ class BillController extends Controller
     public function get(Request $request)
     {
         $billingDate = $request->input('billingDate');
-
         // Calculate the start and end date of the billing period
-        $startDate = date('Y-m-d', strtotime("$billingDate -1 month +20 days"));
-        $endDate = date('Y-m-d', strtotime("$billingDate +19 days"));
+        $startDate = Carbon::parse($billingDate . '-01')->startOfMonth()->format('Y-m-d');
+        $endDate = Carbon::parse($billingDate . '-01')->endOfMonth()->format('Y-m-d');
         // dd($startDate, $endDate);
         $orders = Order::whereBetween('order_date', [$startDate, $endDate])->get();
         $csvData = [];
