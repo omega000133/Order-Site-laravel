@@ -126,7 +126,7 @@
                 }
             });
 
-            var grades;
+            var grades = ['0', '1', '2', '3', '4', '5', '6'];
             var checkboxes = document.querySelectorAll('.grade');
             $(".grade").change(function() {
                 grades = [];
@@ -138,7 +138,7 @@
             });
 
             $("#register_btn").click(function() {
-                // console.log(grades)
+                console.log(grades)
                 var news_date = $("#news_date").val();
                 var news_title = $("#news_title").val();
                 var news_content = $("#news_content").val();
