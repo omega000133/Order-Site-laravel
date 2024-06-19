@@ -43,7 +43,7 @@ class BillController extends Controller
             $csvRow = [
                 '処理タイプ' => 4,
                 '決済番号' => $user->payment_num,
-                '店舗オーダ' => $user->order_num,
+                '店舗オーダ' => $user->id,
                 'ジョブタイプ' => 'CAPTURE',
                 '決済金額' => $totalAmount,
                 '税金額' => 0,
