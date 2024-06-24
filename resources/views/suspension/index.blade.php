@@ -11,6 +11,12 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
+                        <input class="form-check-input grade" type="checkbox" value="7" id="teacher">
+                        <label class="form-check-label" for="teacher">先生</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
                         <input class="form-check-input grade" type="checkbox" value="0" id="grade0">
                         <label class="form-check-label" for="grade0">新入生</label>
                     </div>
